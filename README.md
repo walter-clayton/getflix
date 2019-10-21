@@ -50,7 +50,7 @@ if you would like to contribute
 ## Acknowledgment
 
 * Thank you [BeCode](https://www.becode.org) for putting the team together!
-* Inspired by [Cookie](https://www.netflix.com/) 
-* Inspired by [Cookie](https://mailchimp.com/en/) 
-* Inspired by [Cookie](https://www.themoviedb.org/documentation/api) 
-* Inspired by [Cookie](https://www.amazon.com/Prime-Video) 
+* Inspired by [netflix](https://www.netflix.com/) 
+* Inspired by [mailchimp](https://mailchimp.com/en/) 
+* Inspired by [themoviedb](https://www.themoviedb.org/documentation/api) 
+* Inspired by [amazon](https://www.amazon.com/Prime-Video) 
