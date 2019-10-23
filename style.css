@@ -1,9 +1,22 @@
 .body { 
 
-background-color: black; 
+background-color :  black;
 }
 
 .card {
     margin:auto;
 }
 
+#comment{
+
+    margin-left: 275px;
+}
+
+.espacecom {
+    margin:auto;
+}
+
+hr {
+
+    background-color: black;
+}
