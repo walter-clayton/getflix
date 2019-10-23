@@ -330,6 +330,14 @@ footer h5 {
 }
 
 
+background-color: black; 
+}
+
+.card {
+    margin:auto;
+}
+
+
 span:hover {
 	color: gold;
 }
@@ -337,6 +345,14 @@ span:hover {
 footer span {
 	color: grey !important;
 }
+
+
+
+footer span:hover {
+	
+	text-decoration: underline;
+}
+
 
 
 /*----------MEDIA QUERIES-------------*/
@@ -421,3 +437,4 @@ i { font-size: 17px; }
 	margin: 5px;
 
 }
+
