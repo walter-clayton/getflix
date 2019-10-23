@@ -7,6 +7,8 @@
 
 	<meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- STYLESHEET -->
+    <link rel="stylesheet" type="text/css" href="style.css">
     <!-- BOOTSTRAP -->
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 	<!-- FONTAWESOME -->
@@ -23,12 +25,15 @@
 </head>
 <body>
 <!-- HEADER -->
-<?php include("header.php"); ?>
+<?php include("header.php");
+		include("member.php");
+		 ?>
 
 
 	
  <!--------FOOTER------->
 <?php include("footer.php"); ?>
+
 </body>
 </html>
 <!-- BOOTSTRAP JS -->
