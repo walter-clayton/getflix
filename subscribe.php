@@ -1,31 +1,4 @@
-<?php
- 
 
-$pseudo = '';
-$password = '';
-$password_confirm = '';
-
-
-// isset to check whether the variables $pseudo and $message contain anything, it will return FALSE if the value is NULL
-if(isset($_POST['submit'])){ 
-
-    $pseudo = htmlspecialchars($_POST['pseudo']); 
-    $date_subscribed = "";
-    $_SESSION[''] = $pseudo;
-
-    if ($_POST['password'] === $_POST['password_confirm']) {
-
-      $pass_hashe = password_hash($_POST['password'], PASSWORD_BCRYPT);
-    }
-
-    else {
-      echo 'the passwords need to match!';
-    }
-
-  }
-
-
-?>
 <form class="form-horizontal" action='' method="POST">
   <fieldset>
 
@@ -71,7 +44,28 @@ if(isset($_POST['submit'])){
 
 <?php
 
+   $pseudo = '';
+    $password = '';
+    $password_confirm = '';
+    $pass_hashe = '';
+// isset to check whether the variables $pseudo and $message contain anything, it will return FALSE if the value is NULL
 
+if(isset($_POST['submit'])){ 
+ 
+    $pseudo = htmlspecialchars($_POST['pseudo']); 
+    $date_subscribed = "";
+    $_SESSION[''] = $pseudo;
+
+    if ($_POST['password'] === $_POST['password_confirm']) {
+
+      $pass_hashe = password_hash($password, PASSWORD_BCRYPT);
+    }
+
+    else {
+      echo 'the passwords need to match!';
+    }
+
+  }
 
 
 
@@ -87,50 +81,38 @@ catch (Exception $e) {
 
 
 // insert the input into the database
-$req = $db->prepare('INSERT INTO members(pseudo, password, date_subscribed) VALUES (:pseudo, :pass_hashe, curdate())');
+$req = $db->prepare('INSERT INTO members(pseudo, password, date_subscribed) VALUES (:pseudo, :password, curdate())');
 $req->execute(array(
 'pseudo' => $pseudo, 
-'pass_hashe' => $pass_hashe
+'password' => $pass_hashe
   ));
 
 // get all data from minichat table, and most recent at the top, and set a limit of 10 lines
 $response = $db->query('SELECT * FROM members ORDER BY ID DESC LIMIT 0,1');
 
-$isPasswordCorrect = password_verify(password, $pass_hashe);
 
-if (isset($_SESSION['ID']) AND isset($_SESSION['pseudo'])) {
 
-  echo 'Bonjour' . $_SESSION['pseudo'];
-}
 
 // get the data and display it on the page
-while ($db = $response->fetch()){
+if ($db = $response->fetch()){
   echo '<p> Hello ' . $db['pseudo'] . '</p>';
-  }
 
+$isPasswordCorrect = password_verify($db['password'], $pass_hashe);
+
+if ( $isPasswordCorrect = TRUE ) {
+    session_start();
+    $_SESSION['ID'] = $db['ID'];
+    $_SESSION['pseudo'] = $pseudo;
+    echo 'you are connected ' . $pseudo . '!';
+
+}
+
+    else {
+      echo 'Wrong password WANKER! MATCH THEM!';
+    }
+
+ }
 // frees up the connection to the server so that other SQL statements may be issued, but leaves the statement in a state that enables it to be executed again.
   $response->closeCursor();
 
-
-
-// if ( $isPasswordCorrect = FALSE ) {
-
-//   echo 'Wrong password';
-
-// }
-
-// else {
-
-//   if ($isPasswordCorrect) {
-//     session_start();
-//     $_SESSION['ID'] = $response['ID'];
-//     $_SESSION['pseudo'] = $pseudo;
-//     echo 'you are connected!';
-//   }
-//     else {
-//       echo 'Wrong password!';
-//     }
-
-//   }
-
-//   ?>
+ ?>
