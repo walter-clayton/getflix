@@ -34,7 +34,7 @@ $_SESSION[""] = $pseudo;
 
 <!-- HEADER -->
 <?php include("header.php"); ?>
-
+<div class="container" style="padding-top:2%;">
 <div class="card" style="width: 35.2rem;">
 <iframe width="560" height="315" src="https://www.youtube.com/embed/x9gkHthYj4U" 
 frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
@@ -57,15 +57,15 @@ Avec Viggo Mortensen, Frank Langella, George Mackay </li>
     <a href="#" class="card-link">Another link</a>
   </div>
 </div>
-
+</div>
 <br>
-<center>
+<div class="card d-flex justify-content-center" style="width: 35.2rem;">
 <form action ="" method ="post">
-<label for = "pseudo">Pseudo : </label><input type="text" name="pseudo" placeholder="Your Pseudo"  value= "<?php $pseudo ?>"><br>
+<label style=" padding-left:2%;" for = "pseudo">Pseudo: </label><input type="text" name="pseudo" placeholder="Your Pseudo" value= "<?php $pseudo ?>"><br>
 <label for = "message">Message:</label><input type="text" name="message" placeholder="Your Message..." value=""><br>
 <input type="submit" name="submit" value="Send message"> <br>
 </form> 
-</center>
+</div>
 <?php
 // connect to the server and display errors.
 try{
@@ -119,4 +119,3 @@ $response->closeCursor();
 </body>
 
 </html>
-

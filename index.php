@@ -26,7 +26,7 @@
 <body>
 <!-- HEADER -->
 <?php include("header.php");
-		include("member.php");
+		
 		 ?>
 
 
