@@ -2,6 +2,9 @@
 
 <body class="body">
 
+
+<!-- NAVBAR -->
+  
 <!--------HEADER----------->
 <header>
 	<!-- NAVBAR -->
@@ -19,6 +22,7 @@
 			</div>
 	</nav>
 
+
 <div class="container-fluid">
 	
 	<nav class="navbar navbar-expand-lg navbar-light bg-dark">
@@ -32,24 +36,27 @@
   <a class="navbar-brand hover" href="#"><img src="./images/fav.png" width="35" height="35" class="d-inline-block align-top hover" alt=""><span class="hover" style="color:white;"> AFITPILOT</span> </a>
 	</div>
     
-    <form class="form-inline smallsearch col-sm-8 col-xs-11  ">
+    <form class="form-inline smallsearch col-sm-8 col-xs-11">
 		<div class="row col-9">
       <input class="form-control col-xs-11 col-9"  type="search" placeholder="Search">&nbsp;
       <button class="btn btn-outline-info " type="submit" autocomplete="off" required>Search</button>
 	</form>
 	
   </div>
-  <ul class="nav navbar-nav navbar-right">
+  <ul class="nav navbar-nav navbar-right-info">
 	<li class>
-	<a href="" style="color:white;" class >Register</a>
+	<a href=""  style="color:white;" class>Register</a>
 	<li class>
-	<a href=""  style="color:white;" class>/Login</a>
-
-
-
+  <a href=""  style="color:white;" class>/Login</a>
+  
 </div>
 </nav>
 </div>
 
 
+<!-- END NAVBAR -->
+
+
+
 </header>
+

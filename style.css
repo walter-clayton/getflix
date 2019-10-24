@@ -1,3 +1,6 @@
+
+.body { 
+=======
 body { 
 
 color:  black !important; 
@@ -364,9 +367,8 @@ footer span {
 
 
 footer span:hover {
-	
-	text-decoration: underline;
-}
+
+
 
 
 
@@ -376,51 +378,19 @@ footer span:hover {
 @media (max-width: 768px) {
 
 
+
 	.container {
+		padding-top: 100px;
+		position: relative;
 		display: flex;
-		flex-direction: column;
+		align-items: center;
+		justify-content: center;
 	}
 
-	article {
-		margin-top: 20px;
-
+		justify-content: center;
+		
 	}
 
-
-
-	.media-text {
-		display: none;
-	}
-
-
-/*FOOTER*/
-
-	.footer-media  {
-		display: flex;
-		flex-direction: row;
-
-	}
-
-	.footer-endorsement {
-		display: flex;
-		flex-direction: row;
-
-	}
-
-	.footer-endorsement img {
-	width: 30px;
-	margin: 10px;
-
-	}
-
-	.endorsement {
-		display: none;
-	}
-
-
-	i {
-		font-size: 30px;
-		display: flex;
 		flex-direction: row;
 	}
 
