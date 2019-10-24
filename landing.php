@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,7 +20,7 @@
 
 <!-- HEADER -->
 <?php include("header.php"); ?>
-
+<div class="container">
 <div class="card" style="width: 35.2rem;">
 <iframe width="560" height="315" src="https://www.youtube.com/embed/x9gkHthYj4U" 
 frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
@@ -45,21 +43,21 @@ Avec Viggo Mortensen, Frank Langella, George Mackay </li>
     <a href="#" class="card-link">Another link</a>
   </div>
 </div>
-
+</div>
 <br>
 <div class="container">
             <div class="row">
 
-                <div class="col-md-7 d-flex justify-content-center">
-                    <div class="form-group">
-                        <textarea name="txtMsg" class="form-control" placeholder="Your Message *"
-                            style="width: 200%; height: 150px;"></textarea> <br>
-                            <input type="submit" name="btnSubmit" class="btnContact" value="Send Message" /> <br><br>
-                            <input type="submit" name="btnSubmit" class="btnContact" value="See Comment" />
-
-                    </div>
+            <form action="/html/tags/html_form_tag_action.cfm" method="post">
+            <div>
+            <textarea name="comments" id="comments" class="textbox">
+            
+            </textarea>
             </div>
-  
+            <input type="submit" value="Submit">
+            </form>
+</div>
+</div>
             
  <!--------FOOTER------->
 <?php include("footer.php"); ?>
