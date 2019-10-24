@@ -29,8 +29,10 @@
 </div>
 <small class="form-text text-danger mb-3"></small>
 <hr>
+
 <p class="text-right"><a href="member.php"style="margin-top:2%" >Register &nbsp;&nbsp;</a>
 <button type="submit" class="btn btn-warning float-right">Connexion</button></p>
+
 </form>
 </div>
 </div>

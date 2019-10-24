@@ -32,8 +32,13 @@ $message = htmlspecialchars($_POST['message']);
 <body>
 
 <!-- HEADER -->
+<!-- DEV HAMZA -->
 <?php include("header.php"); ?>
+<<<<<<< HEAD
 <div class="container" style="padding-top:3%;">
+=======
+<div class="container" style="padding-top:2%;">
+>>>>>>> eeb17f629c04d7016c0c54be5bee69fd120ba5fc
 <div class="card" style="width: 35.2rem;">
 <iframe width="560" height="315" src="https://www.youtube.com/embed/x9gkHthYj4U" 
 frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
@@ -58,6 +63,7 @@ Avec Viggo Mortensen, Frank Langella, George Mackay </li>
 </div>
 </div>
 <br>
+<<<<<<< HEAD
 <div class="container">
 <div class="card" style="width: 35.2rem;"> 
 <form action ="" method ="POST">
@@ -66,6 +72,14 @@ Avec Viggo Mortensen, Frank Langella, George Mackay </li>
 <input type="submit" class="btn btn-warning float-right" value="Send message"><br>
 </form>
 </div>
+=======
+<div class="card d-flex justify-content-center" style="width: 35.2rem;">
+<form action ="" method ="post">
+<label style=" padding-left:2%;" for = "pseudo">Pseudo: </label><input type="text" name="pseudo" placeholder="Your Pseudo" value= "<?php $pseudo ?>"><br>
+<label for = "message">Message:</label><input type="text" name="message" placeholder="Your Message..." value=""><br>
+<button type="submit" class="btn btn-warning float-right ">Send message</button> <br>
+</form> 
+>>>>>>> eeb17f629c04d7016c0c54be5bee69fd120ba5fc
 </div>
 <?php
 // connect to the server and display errors.
@@ -104,8 +118,15 @@ while ($db = $response->fetch()){
 
 }
 // frees up the connection to the server so that other SQL statements may be issued, but leaves the statement in a state that enables it to be executed again.
+<<<<<<< HEAD
  $response->closeCursor();
 ?> 
+=======
+$response->closeCursor();
+?>
+
+<!-- END DEV HAMZA -->
+>>>>>>> eeb17f629c04d7016c0c54be5bee69fd120ba5fc
   </div>
 </div>
 
@@ -121,4 +142,3 @@ while ($db = $response->fetch()){
 </body>
 
 </html>
-
