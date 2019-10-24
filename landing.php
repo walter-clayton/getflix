@@ -69,7 +69,7 @@ Avec Viggo Mortensen, Frank Langella, George Mackay </li>
 <?php
 // connect to the server and display errors.
 try{
-$db = new PDO('mysql:host=localhost;dbname=hamzacom', 'root', '', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+$db = new PDO('mysql:host=localhost;dbname=getflix', 'root', '', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
 }
 
 // display errors
@@ -79,7 +79,7 @@ die('Error : ' . $e->getMessage());
 
 // insert the input into the database
 $req = $db->prepare('INSERT INTO commentaires (pseudo, message, date_comment) VALUES (? , ?, ?)');
-$req->execute(array($pseudo, $message,$date_comment));
+$req->execute(array($pseudo, $message, $date_comment));
 
 // get all data from commentaires table, and most recent at the top, and set a limit of 10 lines
 $response = $db->query('SELECT * FROM commentaires ORDER BY ID DESC LIMIT 0,10');
@@ -94,7 +94,8 @@ $response = $db->query('SELECT * FROM commentaires ORDER BY ID DESC LIMIT 0,10')
 <div class="collapse col-md-9 text-align: center;  "    id="collapseExample">
 
 <div id= "comment" class="card card-body "> 
-  <?php // get the data and display it on the page
+<?php 
+  // get the data and display it on the page
 while ($db = $response->fetch()){
   echo   $db['pseudo']. ' | le '. $db['date_comment']. '<br>' . ' : ' . $db['message'] .''. '<br>'. '<hr>' ;
 
@@ -102,8 +103,8 @@ while ($db = $response->fetch()){
 
 }
 // frees up the connection to the server so that other SQL statements may be issued, but leaves the statement in a state that enables it to be executed again.
-$response->closeCursor();
-?>
+ $response->closeCursor();
+?> 
   </div>
 </div>
 
