@@ -1,45 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" type="text/css" href="style.css">
+
+  <title>Member</title>
+</head>
+<body class="body" style="color:#F7ECE1;">
+
+
 <?php
  
 
-$pseudo = '';
-$password = '';
-$password_confirm = '';
+$pseudo = "";
+$email = "";
+$password = "";
+$password_confirm = "";
 
 
 // isset to check whether the variables $pseudo and $message contain anything, it will return FALSE if the value is NULL
 if(isset($_POST['submit'])){ 
-
-    $pseudo = htmlspecialchars($_POST['pseudo']); 
+    $pseudo = htmlspecialchars($_POST['pseudo']);
+    $email = htmlspecialchars($_POST['email']);
+    $pass_hashe = password_hash($_POST['password'], PASSWORD_DEFAULT);
     $date_subscribed = "";
-    $_SESSION[''] = $pseudo;
-
-    if ($_POST['password'] === $_POST['password_confirm']) {
-
-      $pass_hashe = password_hash($_POST['password'], PASSWORD_BCRYPT);
-    }
-
-    else {
-      echo 'the passwords need to match!';
-    }
-
+    $_SESSION[""] = $pseudo;
   }
 
 
 ?>
+
 <form class="form-horizontal" action='' method="POST">
   <fieldset>
-
     <div id="legend">
       <legend class="">Register</legend>
     </div>
     <div class="control-group">
       <!-- Username -->
-      <label class="control-label"  for="pseudo">Pseudo</label>
+      <label class="control-label"  for="username">Pseudo</label>
       <div class="controls">
         <input type="text" id="pseudo" name="pseudo" placeholder="" class="input-xlarge">
         <p class="help-block">Username can contain any letters or numbers, without spaces</p>
       </div>
     </div>
+ 
+    <div class="control-group">
+      <!-- E-mail -->
+      <label class="control-label" for="email">E-mail</label>
+      <div class="controls">
+        <input type="text" id="email" name="email" placeholder="" class="input-xlarge">
+        <p class="help-block">Please provide your E-mail</p>
+      </div>
+    </div>
+ 
     <div class="control-group">
       <!-- Password-->
       <label class="control-label" for="password">Password</label>
@@ -71,6 +86,8 @@ if(isset($_POST['submit'])){
 
 <?php
 
+if ( $password_confirm === $password )
+{
 
 
 
@@ -87,21 +104,15 @@ catch (Exception $e) {
 
 
 // insert the input into the database
-$req = $db->prepare('INSERT INTO members(pseudo, password, date_subscribed) VALUES (:pseudo, :pass_hashe, curdate())');
+$req = $db->prepare('INSERT INTO members(pseudo, password, date_subscribed) VALUES (?, ?, curdate())');
 $req->execute(array(
-'pseudo' => $pseudo, 
-'pass_hashe' => $pass_hashe
+  $pseudo, 
+  $password
   ));
+
 
 // get all data from minichat table, and most recent at the top, and set a limit of 10 lines
 $response = $db->query('SELECT * FROM members ORDER BY ID DESC LIMIT 0,1');
-
-$isPasswordCorrect = password_verify(password, $pass_hashe);
-
-if (isset($_SESSION['ID']) AND isset($_SESSION['pseudo'])) {
-
-  echo 'Bonjour' . $_SESSION['pseudo'];
-}
 
 // get the data and display it on the page
 while ($db = $response->fetch()){
@@ -111,26 +122,12 @@ while ($db = $response->fetch()){
 // frees up the connection to the server so that other SQL statements may be issued, but leaves the statement in a state that enables it to be executed again.
   $response->closeCursor();
 
+}
 
+else {
+  echo "Wrong password";
+}
+  ?>  
 
-// if ( $isPasswordCorrect = FALSE ) {
-
-//   echo 'Wrong password';
-
-// }
-
-// else {
-
-//   if ($isPasswordCorrect) {
-//     session_start();
-//     $_SESSION['ID'] = $response['ID'];
-//     $_SESSION['pseudo'] = $pseudo;
-//     echo 'you are connected!';
-//   }
-//     else {
-//       echo 'Wrong password!';
-//     }
-
-//   }
-
-//   ?>
+</body>
+</html>

@@ -7,31 +7,35 @@
     <link rel="stylesheet" type="text/css" href="style.css">
     <!-- BOOTSTRAP -->
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-	
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+
     <title>Page connexion</title>
+    <!--  DEV MOUAD -->
 </head>
 <body class="body">
 <div class="container">
 <div class="m-auto pt-5 w-50">
 <div class="card">
-<h5 class="card-header bg-info" style="color:white;">Login</h5>
+<h5 class="card-header bg-warning" style="color:white; display:flex; justify-content:center;">Login</h5>
 <div class="card-body">
 <form action="" method="POST">
 <div class="form-group">
 <label for="username">Nom utilisateur</label>
-<input type="text" class="form-control" id="username" placeholder="Username" name="username">
+<input type="text" class="form-control" id="username" placeholder="Username">
 </div>
 <div class="form-group">
-<label for="password">Mot de passe</label>
-<input type="password" class="form-control" id="password" placeholder="Password" name="password">
+<label for="username">Mode de passe</label>
+<input type="password" class="form-control" id="password" placeholder="Password">
 </div>
 <small class="form-text text-danger mb-3"></small>
 <hr>
-<button type="submit" class="btn btn-dark float-right">Connexion</button>
+<p class="text-right"><a href="member.php"style="margin-top:2%" >Register &nbsp;&nbsp;</a>
+<button type="submit" class="btn btn-warning float-right">Connexion</button></p>
 </form>
 </div>
 </div>
 </div>
 </div>
+<!-- END DEV MOUAD -->
 </body>
 </html>
