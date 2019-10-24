@@ -14,7 +14,7 @@
 <div class="container">
 <div class="m-auto pt-5 w-50">
 <div class="card">
-<h5 class="card-header bg-info" style="color:white;">Login</h5>
+<h5 class="card-header bg-warning" style="color:white; display:flex; justify-content:center;">Login</h5>
 <div class="card-body">
 <form action="" method="POST">
 <div class="form-group">
@@ -27,7 +27,7 @@
 </div>
 <small class="form-text text-danger mb-3"></small>
 <hr>
-<button type="submit" class="btn btn-dark float-right">Connexion</button>
+<button type="submit" class="btn btn-warning float-right">Connexion</button>
 </form>
 </div>
 </div>

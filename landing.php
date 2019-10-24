@@ -33,6 +33,7 @@ $_SESSION[""] = $pseudo;
 <body>
 
 <!-- HEADER -->
+<!-- DEV HAMZA -->
 <?php include("header.php"); ?>
 <div class="container" style="padding-top:2%;">
 <div class="card" style="width: 35.2rem;">
@@ -63,7 +64,7 @@ Avec Viggo Mortensen, Frank Langella, George Mackay </li>
 <form action ="" method ="post">
 <label style=" padding-left:2%;" for = "pseudo">Pseudo: </label><input type="text" name="pseudo" placeholder="Your Pseudo" value= "<?php $pseudo ?>"><br>
 <label for = "message">Message:</label><input type="text" name="message" placeholder="Your Message..." value=""><br>
-<input type="submit" name="submit" value="Send message"> <br>
+<button type="submit" class="btn btn-warning float-right ">Send message</button> <br>
 </form> 
 </div>
 <?php
@@ -104,6 +105,8 @@ while ($db = $response->fetch()){
 // frees up the connection to the server so that other SQL statements may be issued, but leaves the statement in a state that enables it to be executed again.
 $response->closeCursor();
 ?>
+
+<!-- END DEV HAMZA -->
   </div>
 </div>
 

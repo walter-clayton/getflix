@@ -1,3 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" type="text/css" href="style.css">
+
+  <title>Member</title>
+</head>
+<body class="body" style="color:#F7ECE1;">
+
+
 <?php
  
 
@@ -114,4 +127,7 @@ while ($db = $response->fetch()){
 else {
   echo "Wrong password";
 }
-  ?>
+  ?>  
+
+</body>
+</html>
