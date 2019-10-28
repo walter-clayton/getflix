@@ -78,7 +78,9 @@ while ( $db = $response->fetch()) {
 
       echo  $pseudo . " exists in the database!";
 
-    $isPasswordCorrect = password_verify($password, $db['password']);
+    $isPasswordCorrect = password_verify($db['password'], $password);
+    var_dump($db['password']);
+    var_dump($password);
 
             if ($isPasswordCorrect) {
         
