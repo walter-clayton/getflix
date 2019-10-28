@@ -5,138 +5,59 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" type="text/css" href="style.css">
+ <!-- BOOTSTRAP -->
+ <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
 
   <title>Member</title>
 </head>
-<body class="body" style="color:#F7ECE1;">
+<body class="body" style="color:black;">
 
 
-<?php
- 
-
-$pseudo = "";
-$email = "";
-$password = "";
-$password_confirm = "";
-
-
-// isset to check whether the variables $pseudo and $message contain anything, it will return FALSE if the value is NULL
-if(isset($_POST['submit'])){ 
-    $pseudo = htmlspecialchars($_POST['pseudo']);
-    $email = htmlspecialchars($_POST['email']);
-    $pass_hashe = password_hash($_POST['password'], PASSWORD_DEFAULT);
-    $date_subscribed = "";
-    $_SESSION[""] = $pseudo;
-  }
-
-
-?>
-
-<form class="form-horizontal" action='' method="POST">
-  <fieldset>
-    <div id="legend">
+<!-- DEV MOUAD -->
+=====================================
+<body class="body">
+<div class="container">
+<div class="m-auto pt-5 w-50">
+<div class="card">
+<h5 class="card-header bg-warning" style="color:white; display:flex; justify-content:center;"><div id="legend">
       <legend class="">Register</legend>
-    </div>
-    <div class="control-group">
-      <!-- Username -->
-      <label class="control-label"  for="username">Pseudo</label>
-      <div class="controls">
-        <input type="text" id="pseudo" name="pseudo" placeholder="" class="input-xlarge">
-        <p class="help-block">Username can contain any letters or numbers, without spaces</p>
-      </div>
-    </div>
- 
-    <div class="control-group">
-      <!-- E-mail -->
-      <label class="control-label" for="email">E-mail</label>
-      <div class="controls">
-        <input type="text" id="email" name="email" placeholder="" class="input-xlarge">
-        <p class="help-block">Please provide your E-mail</p>
-      </div>
-    </div>
- 
-    <div class="control-group">
-      <!-- Password-->
-      <label class="control-label" for="password">Password</label>
-      <div class="controls">
-        <input type="password" id="password" name="password" placeholder="" class="input-xlarge">
-        <p class="help-block">Password should be at least 4 characters</p>
-      </div>
-    </div>
- 
-    <div class="control-group">
-      <!-- Password -->
-      <label class="control-label"  for="password_confirm">Password (Confirm)</label>
-      <div class="controls">
-        <input type="password" id="password_confirm" name="password_confirm" placeholder="" class="input-xlarge">
-        <p class="help-block">Please confirm password</p>
-      </div>
-    </div>
- 
-    <div class="control-group">
-      <!-- Button -->
-      <div class="controls">
-  <input type="submit" name="submit" value="submit">
-      </div>
-    </div>
-  </fieldset>
+    </div></h5>
+<div class="card-body">
+<form action="" method="POST">
+<!-- Username -->
+<div class="form-group">
+<label for="Pseudo"></label>
+<input type="text" class="form-control" id="Pseudo" name="pseudo" placeholder="Pseudo" required>
+<p class="help-block">Username can contain any letters or numbers, without spaces</p>
+</div>
+<!-- Password-->
+<div class="form-group">
+<label for="password"></label>
+<input type="password" class="form-control" id="password" name="password" placeholder="Password"required>
+<p class="help-block">Please provide your E-mail</p>
+</div>
+<!-- Password-->
+<div class="form-group">
+<label for="password_confirm"></label>
+<input type="password" class="form-control" id="password_confirm" name="password_confirm" placeholder="Password_confirm" required>
+<p class="help-block">Please provide your E-mail</p>
+</div>
+<hr>
+
+<p class="text-right"><a href="connexion.php"style="margin-top:2%" >Login &nbsp;&nbsp;</a>
+<button type="submit" class="btn btn-warning float-right">Register Now</button></p>
+
 </form>
-
-
-
-<?php
-
-if ( $password_confirm === $password )
-{
+</div>
+</div>
+</div>
+</div>
+<!-- END DEV MOUAD -->
 
 
 
 
-// connect to the server and display errors.
-try{
-  $db = new PDO('mysql:host=localhost;dbname=getflix', 'root', '', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
-}
-
-// display errors
-catch (Exception $e) {
-  die('Error : ' . $e->getMessage());
-}
-//verif
-// get all data from minichat table, and most recent at the top, and set a limit of 10 lines
-$verif = $db->prepare('SELECT username FROM member WHERE username=?');
-$verif->$req->execute(array($_POST['pseudo']));
-$db = $verif->fetch();
-if($verif){
-  echo "deja dans la table";
-}else{
-// insert the input into the database
-$req = $db->prepare('INSERT INTO member(pseudo, password,email) VALUES (?, ?,?)');
-$req->execute(array(
-  $pseudo, 
-  $password,
-  $email
-  ));
-
-
-// get all data from minichat table, and most recent at the top, and set a limit of 10 lines
-$response = $db->query('SELECT * FROM member ORDER BY ID DESC LIMIT 0,1');
-
-// get the data and display it on the page
-while ($db = $response->fetch()){
-  echo '<p> Hello ' . $db['pseudo'] . '</p>';
-  }
-
-// frees up the connection to the server so that other SQL statements may be issued, but leaves the statement in a state that enables it to be executed again.
-  $response->closeCursor();
-}
-
-
-}
-
-else {
-  echo "Wrong password";
-}
-  ?>  
 
 </body>
 </html>
