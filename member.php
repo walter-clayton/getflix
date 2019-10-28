@@ -101,18 +101,25 @@ try{
 catch (Exception $e) {
   die('Error : ' . $e->getMessage());
 }
-
-
+//verif
+// get all data from minichat table, and most recent at the top, and set a limit of 10 lines
+$verif = $db->prepare('SELECT username FROM member WHERE username=?');
+$verif->$req->execute(array($_POST['pseudo']));
+$db = $verif->fetch();
+if($verif){
+  echo "deja dans la table";
+}else{
 // insert the input into the database
-$req = $db->prepare('INSERT INTO members(pseudo, password, date_subscribed) VALUES (?, ?, curdate())');
+$req = $db->prepare('INSERT INTO member(pseudo, password,email) VALUES (?, ?,?)');
 $req->execute(array(
   $pseudo, 
-  $password
+  $password,
+  $email
   ));
 
 
 // get all data from minichat table, and most recent at the top, and set a limit of 10 lines
-$response = $db->query('SELECT * FROM members ORDER BY ID DESC LIMIT 0,1');
+$response = $db->query('SELECT * FROM member ORDER BY ID DESC LIMIT 0,1');
 
 // get the data and display it on the page
 while ($db = $response->fetch()){
@@ -121,6 +128,8 @@ while ($db = $response->fetch()){
 
 // frees up the connection to the server so that other SQL statements may be issued, but leaves the statement in a state that enables it to be executed again.
   $response->closeCursor();
+}
+
 
 }
 
