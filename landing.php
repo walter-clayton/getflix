@@ -80,8 +80,12 @@ die('Error : ' . $e->getMessage());
 }
 
 // insert the input into the database
-$req = $db->prepare('INSERT INTO commentaires (pseudo, message, date_comment) VALUES (? , ?, NOW())');
-$req->execute(array($pseudo, $message));
+if(isset($_POST['pseudo']) && isset($_POST['message']) && !empty($_POST['pseudo']) && !empty($_POST['message'])) {
+
+  $req = $db->prepare('INSERT INTO commentaires (pseudo, message, date_comment) VALUES (? , ?, NOW())');
+  $req->execute(array($pseudo, $message));
+}
+
 
 // get all data from commentaires table, and most recent at the top, and set a limit of 10 lines
 $response = $db->query('SELECT * FROM commentaires ORDER BY ID DESC LIMIT 0,10');
