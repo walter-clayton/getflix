@@ -1,15 +1,26 @@
 
+.poster img{
+    height: 450px;
+    width: 350px;
+
+
 .body { 
-=======
+
 body { 
 
 background-color:  black !important; 
+
+}
+.poster{
+    margin: 20px;
 }
 
-button {
-		color: white;
-		background-color: #716969;
+ul{
+    list-style: none;
+    display : flex ;
+    flex-wrap:wrap;
 }
+
 
 a {
 	text-decoration: none;
@@ -422,5 +433,6 @@ i { font-size: 17px; }
 	margin: 5px;
 
 }
+
 
 
