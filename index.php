@@ -7,25 +7,44 @@
 
 	<meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- STYLESHEET -->
+    <link rel="stylesheet" type="text/css" href="style.css">
     <!-- BOOTSTRAP -->
 	<link rel="stylesheet" href="style.css" />
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 	<!-- FONTAWESOME -->
 	<script src="https://kit.fontawesome.com/a076d05399.js"></script>
 	<!-- FAVICON -->
-	<link rel='icon' href='./images/icon.ico' type='image/x-icon'/ >
 
+<!--  SAMUEL SCROLL-->
 	<script type="text/javascript" src="app.js"></script>
+<!--  SAMUEL SCROLL-->
+  
+  
+	<link rel='icon' href='./images/icon.ico' type='image/x-icon' >
+	<link rel="stylesheet" type="text/css" href="style.css">
+
+
+
 	<title>GetFlix</title>
 
 	
 </head>
 <body>
 <!-- HEADER -->
+
 <?php include("header.php"); ?>
+  
+  <!--  SAMUEL SCROLL-->
 <h2>Populaire</h2>
   <div class="populaire-carousel">
   <div id="carousel-example-multi" class="carousel slide carousel-multi-item v-2" data-ride="carousel">
+    <!--  SAMUEL SCROLL-->
+    
+<?php include("header.php");
+		include("member.php");
+		 ?>
+
 
   <!--Controls-->
   <div class="controls-top">
@@ -220,6 +239,7 @@
 	  
  <!--------FOOTER------->
 <?php include("footer.php"); ?>
+
 </body>
 </html>
 <!-- BOOTSTRAP JS -->
