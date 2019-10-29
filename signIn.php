@@ -1,11 +1,4 @@
-<?php
 
-$pseudo = '';
-$password = '';
-$pass_hashe = '';
-
-
-?>
 <form class="form-horizontal" action='' method="POST">
   <fieldset>
 
@@ -16,7 +9,7 @@ $pass_hashe = '';
       <!-- Username -->
       <label class="control-label"  for="pseudo">Pseudo</label>
       <div class="controls">
-        <input type="text" id="pseudo" name="pseudo" placeholder="" class="input-xlarge">
+        <input type="text" id="pseudo" name="pseudo" placeholder="" class="input-xlarge" required="">
         <p class="help-block">Username can contain any letters or numbers, without spaces</p>
       </div>
     </div>
@@ -24,7 +17,7 @@ $pass_hashe = '';
       <!-- Password-->
       <label class="control-label" for="password">Password</label>
       <div class="controls">
-        <input type="password" id="password" name="password" placeholder="" class="input-xlarge">
+        <input type="password" id="password" name="password" placeholder="" class="input-xlarge" required="">
         <p class="help-block">Password should be at least 4 characters</p>
       </div>
     </div>
@@ -43,6 +36,15 @@ $pass_hashe = '';
 <?php
 
 
+
+
+
+// isset to check whether the variables $pseudo and $message contain anything, it will return FALSE if the value is NULL
+if(isset($_POST['submit'])){ 
+
+$pseudo = '';
+$password = '';
+
 // connect to the server and display errors.
 try{
   $db = new PDO('mysql:host=localhost;dbname=getflix', 'root', '', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
@@ -52,47 +54,62 @@ try{
 catch (Exception $e) {
   die('Error : ' . $e->getMessage());
 }
-
-
-
-
-// isset to check whether the variables $pseudo and $message contain anything, it will return FALSE if the value is NULL
-if(isset($_POST['submit'])){ 
+  
 
     $pseudo = htmlspecialchars($_POST['pseudo']); 
     $password = htmlspecialchars($_POST['password']);
-    $pass_hashe = password_hash($password, PASSWORD_BCRYPT);
-    $_SESSION[''] = $pseudo;
-
-    // get all data from minichat table, and most recent at the top, and set a limit of 10 lines
-    $response = $db->query('SELECT * FROM members');
+    
 
 
-    $db = $response->fetch();
+    // get all data from members table,
+    $response = $db->query("SELECT * FROM members WHERE pseudo = '".$pseudo."' ");
+    $results = $response->fetch();
 
-    if ($_POST['pseudo'] === $db['pseudo']) {
+// function login($db, $response, $pseudo, $password) {
 
-      echo "You " . $pseudo . " exist in the database!";
+// while ( $db = $response->fetch()) {
 
-      if ( $pass_hashe === $db['password']) {
-              echo $pseudo . " you are logged in!";
+
+
+    if ( $pseudo === $results['pseudo']) {
+
+    echo  $pseudo . " exists in the database!";
+    var_dump($results['password']);
+    var_dump($password);
+    var_dump(password_verify($password, $results['password']));
+
+            if (password_verify($password, $results['password'])) {
+        
+        echo $pseudo . " you are logged in!";
+        return;
       }
-
-      else {
+              else {
         echo $pseudo . " wrong password!";
+        return;
+                 }
+    
       }
 
-      }
+   
+// }
 
-    else {
-      echo 'You do not exist, subscribe!';
-      
-      }
+
+
+
+echo 'You do not exist, subscribe!';
+
+
+
+
+// login($db, $response, $pseudo, $password);
+
+// frees up the connection to the server so that other SQL statements may be issued, but leaves the statement in a state that enables it to be executed again.
+$response->closeCursor();
+
+
+
 }
 
 
-// frees up the connection to the server so that other SQL statements may be issued, but leaves the statement in a state that enables it to be executed again.
-
-  // $response->closeCursor(); 
 
   ?>
