@@ -1,4 +1,17 @@
 <?php
+    // Page faisant appel aux sessions
+    session_start();
+
+    // Vérification de l'autorisation
+    if (!$_SESSION["membre"]) {
+       // Si l'utilisateur n'est pas autorisé il est reconduit
+       // sur le formulaire d'identification
+       header("Location: member.php");
+       die();
+    }   
+?>
+
+<?php
 
 $pseudo = "";
 $message = "";
