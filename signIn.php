@@ -1,11 +1,4 @@
-<?php
 
-$pseudo = '';
-$password = '';
-$pass_hashe = '';
-
-
-?>
 <form class="form-horizontal" action='' method="POST">
   <fieldset>
 
@@ -49,6 +42,9 @@ $pass_hashe = '';
 // isset to check whether the variables $pseudo and $message contain anything, it will return FALSE if the value is NULL
 if(isset($_POST['submit'])){ 
 
+$pseudo = '';
+$password = '';
+
 // connect to the server and display errors.
 try{
   $db = new PDO('mysql:host=localhost;dbname=getflix', 'root', '', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
@@ -66,23 +62,23 @@ catch (Exception $e) {
 
 
     // get all data from members table,
-    $response = $db->query('SELECT * FROM members ');
+    $response = $db->query("SELECT * FROM members WHERE pseudo = '".$pseudo."' ");
+    $results = $response->fetch();
 
-function login($db, $response, $pseudo, $password) {
+// function login($db, $response, $pseudo, $password) {
 
-while ( $db = $response->fetch()) {
+// while ( $db = $response->fetch()) {
 
 
 
-    if ( $pseudo === $db['pseudo']) {
+    if ( $pseudo === $results['pseudo']) {
 
-      echo  $pseudo . " exists in the database!";
-
-    $isPasswordCorrect = password_verify($db['password'], $password);
-    var_dump($db['password']);
+    echo  $pseudo . " exists in the database!";
+    var_dump($results['password']);
     var_dump($password);
+    var_dump(password_verify($password, $results['password']));
 
-            if ($isPasswordCorrect) {
+            if (password_verify($password, $results['password'])) {
         
         echo $pseudo . " you are logged in!";
         return;
@@ -95,17 +91,17 @@ while ( $db = $response->fetch()) {
       }
 
    
-}
+// }
 
 
 
 
 echo 'You do not exist, subscribe!';
 
-}
 
 
-login($db, $response, $pseudo, $password);
+
+// login($db, $response, $pseudo, $password);
 
 // frees up the connection to the server so that other SQL statements may be issued, but leaves the statement in a state that enables it to be executed again.
 $response->closeCursor();

@@ -44,21 +44,21 @@
 
 <?php
 
-   $pseudo = '';
-    $password = '';
-    $password_confirm = '';
-    $pass_hashe = '';
 // isset to check whether the variables $pseudo and $message contain anything, it will return FALSE if the value is NULL
 
 if(isset($_POST['submit'])){ 
- 
+    $pseudo = '';
+    $password = '';
+    $password_confirm = '';
+    $pass_hashe = '';
+
     $pseudo = htmlspecialchars($_POST['pseudo']); 
     
    /* $_SESSION[''] = $pseudo;*/
 
     if ($_POST['password'] === $_POST['password_confirm']) {
-
-      $date_subscribed = "";
+      $password = $_POST['password'];
+      $date_subscribed = '';
       $pass_hashe = password_hash($password, PASSWORD_BCRYPT);
 
           // connect to the server and display errors.
@@ -79,17 +79,17 @@ if(isset($_POST['submit'])){
        ));
 
         // get all data from minichat table, and most recent at the top, and set a limit of 10 lines
-        $response = $db->query('SELECT * FROM members ORDER BY ID DESC LIMIT 0,1');
+        $response = $db->query('SELECT * FROM members  WHERE pseudo = "'.$pseudo.'" ');
 
               // get the data and display it on the page
-      if ($db = $response->fetch()){
-        echo '<p> Hello ' . $db['pseudo'] . '</p>';
+      if ($results = $response->fetch()){
+        echo '<p> Hello ' . $results['pseudo'] . '</p>';
 
-      $isPasswordCorrect = password_verify($db['password'], $pass_hashe);
+      $isPasswordCorrect = password_verify($password, $results['password']);
 
       if ( $isPasswordCorrect = TRUE ) {
           session_start();
-          $_SESSION['ID'] = $db['ID'];
+          $_SESSION['ID'] = $results['ID'];
           $_SESSION['pseudo'] = $pseudo;
           echo 'you are connected ' . $pseudo . '!';
 
