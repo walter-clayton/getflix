@@ -66,20 +66,20 @@
 
 	<div class="carousel-item active ">
 		<ul>
-		  <li class ="poster"><a herf="www.coin.com"><img  src="Photos/joker.jpg" alt="Joker" ></a></li>
-		  <li class ="poster"><a herf="www.coin.com"><img  src="Photos/ca.jpg" alt="ça" ></a></li>
-		  <li class ="poster"><a herf="www.coin.com"><img  src="Photos/fast.jpg" alt="fast and furious"></a></li>
-		  <li class ="poster"><a herf="www.coin.com"><img  src="Photos/president.jpg" alt="Président" ></a></li>
+		  <li class ="poster"><a href="www.coin.com"><img  src="Photos/joker.jpg" alt="Joker" ></a></li>
+		  <li class ="poster"><a href="www.coin.com"><img  src="Photos/ca.jpg" alt="ça" ></a></li>
+		  <li class ="poster"><a href="www.coin.com"><img  src="Photos/fast.jpg" alt="fast and furious"></a></li>
+		  <li class ="poster"><a href="www.coin.com"><img  src="Photos/president.jpg" alt="Président" ></a></li>
   </ul>
   </div>
 
   <div class="carousel-item ">
 	
       <ul >
-	  <li class ="poster"><a herf="www.coin.com"><img  src="Photos/angry.jpg" alt="Angry Bird"></a></li>
-	  <li class ="poster"><a herf="www.coin.com"><img  src="Photos/terminator.jpg" alt="Terminator"></a></li>
-	  <li class ="poster"><a herf="www.coin.com"><img  src="Photos/once.jpg" alt="Tarantino" ></a></li>
-	  <li class ="poster"><a herf="www.coin.com"><img  src="Photos/dora.jpg" alt="Dora"></a></li>
+	  <li class ="poster"><a href="www.coin.com"><img  src="Photos/angry.jpg" alt="Angry Bird"></a></li>
+	  <li class ="poster"><a href="www.coin.com"><img  src="Photos/terminator.jpg" alt="Terminator"></a></li>
+	  <li class ="poster"><a href="www.coin.com"><img  src="Photos/once.jpg" alt="Once Upon a Time... in Hollywood" ></a></li>
+	  <li class ="poster"><a href="www.coin.com"><img  src="Photos/dora.jpg" alt="Dora"></a></li>
 		
   </ul>
 
@@ -116,20 +116,20 @@
 
 	<div class="carousel-item active ">
 		<ul>
-		  <li class ="poster"><a herf="www.coin.com"><img  src="Photos/blackmirror.jpg" alt="Black Mirror" ></a></li>
-		  <li class ="poster"><a herf="www.coin.com"><img  src="Photos/boys.jpg" alt="The Boys" ></a></li>
-		  <li class ="poster"><a herf="www.coin.com"><img  src="Photos/gof.jpg" alt="Game of Throne"></a></li>
-		  <li class ="poster"><a herf="www.coin.com"><img  src="Photos/misfit.jpg" alt="Mis fits" ></a></li>
+		  <li class ="poster"><a href="www.coin.com"><img  src="Photos/blackmirror.jpg" alt="Black Mirror" ></a></li>
+		  <li class ="poster"><a href="www.coin.com"><img  src="Photos/boys.jpg" alt="The Boys" ></a></li>
+		  <li class ="poster"><a href="www.coin.com"><img  src="Photos/gof.jpg" alt="Game of Throne"></a></li>
+		  <li class ="poster"><a href="www.coin.com"><img  src="Photos/misfit.jpg" alt="Mis fits" ></a></li>
   </ul>
   </div>
 
   <div class="carousel-item ">
 	
       <ul >
-	  <li class ="poster"><a herf="www.coin.com"><img  src="Photos/morty.jpg" alt="Rick et Morty"></a></li>
-	  <li class ="poster"><a herf="www.coin.com"><img  src="Photos/happy.jpg" alt="Happy"></a></li>
-	  <li class ="poster"><a herf="www.coin.com"><img  src="Photos/walking.jpg" alt="The walking dead" ></a></li>
-	  <li class ="poster"><a herf="www.coin.com"><img  src="Photos/heroes.jpg" alt="Heroes"></a></li>
+	  <li class ="poster"><a href="www.coin.com"><img  src="Photos/morty.jpg" alt="Rick et Morty"></a></li>
+	  <li class ="poster"><a href="www.coin.com"><img  src="Photos/happy.jpg" alt="Happy"></a></li>
+	  <li class ="poster"><a href="www.coin.com"><img  src="Photos/walking.jpg" alt="The walking dead" ></a></li>
+	  <li class ="poster"><a href="www.coin.com"><img  src="Photos/heroes.jpg" alt="Heroes"></a></li>
 		
   </ul>
 
@@ -164,20 +164,20 @@
 
 	<div class="carousel-item active ">
 		<ul>
-		  <li class ="poster"><a herf="www.coin.com"><img  src="Photos/clone.jpg" alt="Clones" ></a></li>
-		  <li class ="poster"><a herf="www.coin.com"><img  src="Photos/paul.jpg" alt="Paul" ></a></li>
-		  <li class ="poster"><a herf="www.coin.com"><img  src="Photos/legend.jpg" alt="Im Legend"></a></li>
-		  <li class ="poster"><a herf="www.coin.com"><img  src="Photos/ralph.jpg" alt="Ralph 2.0" ></a></li>
+		  <li class ="poster"><a href="www.coin.com"><img  src="Photos/clone.jpg" alt="Clones" ></a></li>
+		  <li class ="poster"><a href="www.coin.com"><img  src="Photos/paul.jpg" alt="Paul" ></a></li>
+		  <li class ="poster"><a href="www.coin.com"><img  src="Photos/legend.jpg" alt="Im Legend"></a></li>
+		  <li class ="poster"><a href="www.coin.com"><img  src="Photos/ralph.jpg" alt="Ralph 2.0" ></a></li>
   </ul>
   </div>
 
   <div class="carousel-item ">
 	
       <ul >
-	  <li class ="poster"><a herf="www.coin.com"><img  src="Photos/dentmer.jpg" alt="Les dents de la mer"></a></li>
-	  <li class ="poster"><a herf="www.coin.com"><img  src="Photos/zombieland.jpg" alt="Zombieland 2"></a></li>
-	  <li class ="poster"><a herf="www.coin.com"><img  src="Photos/rambo.jpg" alt="Rambo" ></a></li>
-	  <li class ="poster"><a herf="www.coin.com"><img  src="Photos/jobs.jpg" alt="Steve Jobs"></a></li>
+	  <li class ="poster"><a href="www.coin.com"><img  src="Photos/dentmer.jpg" alt="Les dents de la mer"></a></li>
+	  <li class ="poster"><a href="www.coin.com"><img  src="Photos/zombieland.jpg" alt="Zombieland 2"></a></li>
+	  <li class ="poster"><a href="www.coin.com"><img  src="Photos/rambo.jpg" alt="Rambo" ></a></li>
+	  <li class ="poster"><a href="www.coin.com"><img  src="Photos/jobs.jpg" alt="Steve Jobs"></a></li>
 		
   </ul>
 
@@ -212,20 +212,20 @@
 
 	<div class="carousel-item active ">
 		<ul>
-		  <li class ="poster"><a herf="www.coin.com"><img  src="Photos/capitaine.jpg" alt="Capitain Fantastic" ></a></li>
-		  <li class ="poster"><a herf="www.coin.com"><img  src="Photos/america.jpg" alt="Sweet dream of america" ></a></li>
-		  <li class ="poster"><a herf="www.coin.com"><img  src="Photos/nature.jpg" alt="Force et nature"></a></li>
-		  <li class ="poster"><a herf="www.coin.com"><img  src="Photos/queen.jpg" alt="Mc Queeen" ></a></li>
+		  <li class ="poster"><a href="www.coin.com"><img  src="Photos/capitaine.jpg" alt="Capitain Fantastic" ></a></li>
+		  <li class ="poster"><a href="www.coin.com"><img  src="Photos/america.jpg" alt="requiem for the american dream" ></a></li>
+		  <li class ="poster"><a href="www.coin.com"><img  src="Photos/nature.jpg" alt="Force et nature"></a></li>
+		  <li class ="poster"><a href="www.coin.com"><img  src="Photos/queen.jpg" alt="Mc Queen" ></a></li>
   </ul>
   </div>
 
   <div class="carousel-item ">
 	
       <ul >
-	  <li class ="poster"><a herf="www.coin.com"><img  src="Photos/nobody.jpg" alt="Nobody die here"></a></li>
-	  <li class ="poster"><a herf="www.coin.com"><img  src="Photos/deep.jpg" alt="Deepweb"></a></li>
-	  <li class ="poster"><a herf="www.coin.com"><img  src="Photos/war.jpg" alt="War Crimes Dealers" ></a></li>
-	  <li class ="poster"><a herf="www.coin.com"><img  src="Photos/avicii.jpg" alt="Avicii"></a></li>
+	  <li class ="poster"><a href="www.coin.com"><img  src="Photos/nobody.jpg" alt="Nobody die here"></a></li>
+	  <li class ="poster"><a href="www.coin.com"><img  src="Photos/deep.jpg" alt="Deepweb"></a></li>
+	  <li class ="poster"><a href="www.coin.com"><img  src="Photos/war.jpg" alt="War Crimes Dealers" ></a></li>
+	  <li class ="poster"><a href="www.coin.com"><img  src="Photos/avicii.jpg" alt="Avicii"></a></li>
 		
   </ul>
 

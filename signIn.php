@@ -1,7 +1,7 @@
 <?php
 
-$pseudo = '';
-$password = '';
+$pseudo = 'hamza';
+$password = 'hamza';
 $pass_hashe = '';
 
 
@@ -95,4 +95,7 @@ if(isset($_POST['submit'])){
 
   // $response->closeCursor(); 
 
+  
   ?>
+
+  
