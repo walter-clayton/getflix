@@ -1,39 +1,42 @@
 
-
-<!DOCTYPE html>
-<html>
-<head>
-
-
-	<meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- STYLESHEET -->
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <!-- BOOTSTRAP -->
-	
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-	<!-- FONTAWESOME -->
-	<script src="https://kit.fontawesome.com/a076d05399.js"></script>
-	<!-- FAVICON -->
-
-<!--  SAMUEL SCROLL-->
-	<script type="text/javascript" src="app.js"></script>
-<!--  SAMUEL SCROLL-->
-  
-  
-	<link rel='icon' href='./images/icon.ico' type='image/x-icon' >
-
-
-
-	<title>GetFlix</title>
-
-	
-</head>
-<body>
 <!-- HEADER -->
+          <?php 
+    session_start(); 
+
+  if (!isset($_SESSION['pseudo'])) {
+    $_SESSION['msg'] = "You must log in first";
+    echo '<h1 style="color: white;">' .'you must login to add comments!' . '</h1>';
+  }
+
+        ?>
 
 <?php include("header.php"); ?>
-  
+
+
+
+    <div class="content">
+      <h1 style="color: white;">HELLO</h1>
+    <!-- notification message -->
+    <?php if (isset($_SESSION['success'])) : ?>
+      <div class="error success" >
+        <span style="color: white;">
+          <?php 
+            echo $_SESSION['success']; 
+          ?>
+          </span>
+      </div>
+    <?php endif ?>
+
+    <!-- logged in user information -->
+    <?php  if (isset($_SESSION['pseudo'])) : ?>
+      <p style="color : white;">Welcome <strong> <?php echo $_SESSION['pseudo']; ?> </strong></p>
+      <?php endif ?>
+
+      <p> <a href="index.php?logout='1'" style="color: red;" onclick ="logout();" name="logout" >logout <?php include('logout.php') ?> </a> </p>
+    
+</div>
+
+
   <!--  SAMUEL SCROLL-->
   <div class="container" style="padding-top:3%;">
 <h2 style="color:white;">Populaire</h2>
