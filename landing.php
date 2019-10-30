@@ -1,6 +1,8 @@
 
+
           <?php 
     session_start(); 
+
 
 <?php
     // Page faisant appel aux sessions
