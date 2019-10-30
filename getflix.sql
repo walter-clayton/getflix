@@ -1,11 +1,12 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.0.1
+
+-- version 4.8.5
 -- https://www.phpmyadmin.net/
 --
--- Hôte : localhost
--- Généré le :  mer. 30 oct. 2019 à 14:55
--- Version du serveur :  10.4.6-MariaDB
--- Version de PHP :  7.3.9
+-- Host: 127.0.0.1:3306
+-- Generation Time: Oct 30, 2019 at 10:57 AM
+-- Server version: 5.7.26
+-- PHP Version: 7.2.18
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,24 +20,30 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données :  `getflix`
+
+-- Database: `getflix`
+
 --
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `commentaires`
+
+-- Table structure for table `commentaires`
 --
 
-CREATE TABLE `commentaires` (
-  `id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `commentaires`;
+CREATE TABLE IF NOT EXISTS `commentaires` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `pseudo` varchar(255) NOT NULL,
   `message` text NOT NULL,
-  `date_comment` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `date_comment` text NOT NULL,
+  UNIQUE KEY `id` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=240 DEFAULT CHARSET=latin1;
 
 --
--- Déchargement des données de la table `commentaires`
+-- Dumping data for table `commentaires`
+
 --
 
 INSERT INTO `commentaires` (`id`, `pseudo`, `message`, `date_comment`) VALUES
@@ -57,23 +64,29 @@ INSERT INTO `commentaires` (`id`, `pseudo`, `message`, `date_comment`) VALUES
 (237, 'htmlspecialchars(tamere)', '222', '2019-10-30 10:02:21'),
 (238, 'tamere', 'tonpere', '2019-10-30 10:02:31');
 
+
 -- --------------------------------------------------------
 
 --
--- Structure de la table `media`
+-- Table structure for table `media`
 --
 
-CREATE TABLE `media` (
-  `ID` int(11) NOT NULL,
+DROP TABLE IF EXISTS `media`;
+CREATE TABLE IF NOT EXISTS `media` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(255) NOT NULL,
   `synopsis` varchar(255) NOT NULL,
   `message` varchar(255) NOT NULL,
-  `genre` varchar(255) NOT NULL
+  `genre` varchar(255) NOT NULL,
+  `link video` int(255) NOT NULL,
+  PRIMARY KEY (`ID`)
+
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
 --
+
 -- Structure de la table `media2`
 --
 
@@ -187,6 +200,7 @@ ALTER TABLE `media`
 --
 ALTER TABLE `members`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
