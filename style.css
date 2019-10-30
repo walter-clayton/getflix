@@ -7,8 +7,10 @@ body {
 	}
 	
 .poster img{
-    height: 400px;
-	width: 320px;
+
+    height: 300px;
+
+	
 }
 .poster {
     margin: 20px;
