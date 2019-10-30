@@ -1,3 +1,17 @@
+<style>
+
+.poster img{
+    height: 300px;
+    margin:20px;
+    }
+
+    #myUL {
+  list-style-type: none;
+  display :none;
+  flex-wrap:wrap;
+  justify-content:center;
+}
+</style>
 </head>
 
 <body class="body">
@@ -9,7 +23,8 @@
 <header>
   <!-- NAVBAR -->
  <!--  DEV MOUAD -->
-<div class="container-fluid-fullwidth">
+
+ <div class="container-fluid-fullwidth">
 	
 	<nav class="navbar navbar-expand-lg navbar-light bg-dark">
   
@@ -19,15 +34,17 @@
 
   <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
     
-  <a class="navbar-brand hover" href="index.php"><img src="./images/fav.png" width="35" height="35" class="d-inline-block align-top hover" alt=""><span class="hover" style="color:#F7ECE1;"> GETFLIX</span> </a>
+  <a class="navbar-brand hover" href="index.php"><span class="hover" style="color:#F7ECE1;"> GETFLIX</span> </a>
   <!-- PROVISOIRE --> <a href="landing.php"><span style=color:#F7ECE1;>LANDING</span></a> <!-- PROVISOIRE -->
-</div>
-    
-    <form class="form-inline smallsearch col-sm-8 col-xs-11">
+
+
+    <form class="form-inline smallsearch col-sm-8 col-xs-11" name="form" action="searchpage.php">
 		<div class="row col-11">
-      <input class="form-control col-xs-11 col-9"  type="search" placeholder="Search">&nbsp;
-      <button class="btn btn-outline-warning " type="submit" autocomplete="off" required>Search</button>
-	</form>
+      &nbsp;
+      <button class="btn btn-outline-warning col-xs-11 col-8 ml-auto " type="submit" autocomplete="off" required>Chercher un film</button>
+    </form>
+ 
+  </div>
 	
   </div>
   <ul class="nav navbar-nav navbar-right-info">
@@ -35,10 +52,11 @@
 	<a href="member.php"  style="color:#F7ECE1;" class>Register</a>
 	<li class>
   <a href="connexion.php"  style="color:#F7ECE1;" class>/Login</a>
-  
+</div>
 </div>
 </nav>
 </div>
+
 
 
 <!-- END NAVBAR -->
