@@ -1,4 +1,4 @@
-          <?php 
+           <?php 
     session_start(); 
     ?>
 <form class="form-horizontal" action='' method="POST">
