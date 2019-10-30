@@ -43,7 +43,13 @@
 </head>
 
 <body>
-    <div class="content">
+
+
+<!-- HEADER -->
+<!-- DEV HAMZA -->
+<?php include("header.php"); ?>   
+
+ <div class="content">
       <h1 style="color: white;">HELLO</h1>
     <!-- notification message -->
     <?php if (isset($_SESSION['success'])) : ?>
@@ -64,10 +70,6 @@
       <p> <a href="index.php?logout='1'" style="color: red;" name="logout" >logout</a> </p>
     
 </div>
-
-<!-- HEADER -->
-<!-- DEV HAMZA -->
-<?php include("header.php"); ?>
 <div class="container" style="padding-top:3%;">
 <div class="card" style="width: 35.2rem;">
 <iframe width="560" height="315" src="https://www.youtube.com/embed/x9gkHthYj4U" 

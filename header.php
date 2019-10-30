@@ -52,14 +52,11 @@
   <a class="navbar-brand hover" href="index.php"><span class="hover" style="color:#F7ECE1;"> GETFLIX</span> </a>
   <!-- PROVISOIRE --> <a href="landing.php"><span style=color:#F7ECE1;>LANDING</span></a> <!-- PROVISOIRE -->
   </div>
-  <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-<!-- Search form -->
-<form class="form-inline">
-  <div class="form-group ">
-      <input class="form-control" type="text" placeholder="Search"
-    aria-label="Search">
-  <i class="fas fa-search" aria-hidden="true" style="color: white;"></i>
-  </div>
+    <form class="form-inline smallsearch col-sm-8 col-xs-11">
+    <div class="row col-11">
+      <input class="form-control col-xs-11 col-9"  type="search" placeholder="Search">&nbsp;
+      <button class="btn btn-outline-warning " type="submit" autocomplete="off" required>Search</button>
+  </form>
 
 </form>
   </div >
