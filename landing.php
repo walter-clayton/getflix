@@ -1,3 +1,7 @@
+
+          <?php 
+    session_start(); 
+
 <?php
     // Page faisant appel aux sessions
     session_start();
@@ -13,17 +17,13 @@
 
 <?php
 
-$pseudo = "";
-$message = "";
 
-// isset to check whether the variables $pseudo and $message contain anything, it will return FALSE if the value is NULL
-if(isset($_POST['pseudo']) AND isset($_POST['message'])){
-$pseudo = htmlspecialchars($_POST['pseudo']);
-$message = htmlspecialchars($_POST['message']);
-//$_SESSION[""] = $pseudo;
-}
+  if (!isset($_SESSION['pseudo'])) {
+    $_SESSION['msg'] = "You must log in first";
+    echo '<h1 style="color: white;">' .'you must login to add comments!' . '</h1>';
+  }
 
-?>
+    ?>
 
 <!DOCTYPE html>
 <html>
@@ -43,6 +43,27 @@ $message = htmlspecialchars($_POST['message']);
 </head>
 
 <body>
+    <div class="content">
+      <h1 style="color: white;">HELLO</h1>
+    <!-- notification message -->
+    <?php if (isset($_SESSION['success'])) : ?>
+      <div class="error success" >
+        <span style="color: white;">
+          <?php 
+            echo $_SESSION['success']; 
+          ?>
+          </span>
+      </div>
+    <?php endif ?>
+
+    <!-- logged in user information -->
+    <?php  if (isset($_SESSION['pseudo'])) : ?>
+      <p style="color : white;">Welcome <strong> <?php echo $_SESSION['pseudo']; ?> </strong></p>
+      <?php endif ?>
+
+      <p> <a href="index.php?logout='1'" style="color: red;" name="logout" >logout</a> </p>
+    
+</div>
 
 <!-- HEADER -->
 <!-- DEV HAMZA -->

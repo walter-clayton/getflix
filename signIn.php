@@ -1,3 +1,7 @@
+          <?php 
+    session_start(); 
+
+    ?>
 
 <form class="form-horizontal" action='' method="POST">
   <fieldset>
@@ -36,9 +40,6 @@
 <?php
 
 
-
-
-
 // isset to check whether the variables $pseudo and $message contain anything, it will return FALSE if the value is NULL
 if(isset($_POST['submit'])){ 
 
@@ -65,11 +66,6 @@ catch (Exception $e) {
     $response = $db->query("SELECT * FROM members WHERE pseudo = '".$pseudo."' ");
     $results = $response->fetch();
 
-// function login($db, $response, $pseudo, $password) {
-
-// while ( $db = $response->fetch()) {
-
-
 
     if ( $pseudo === $results['pseudo']) {
 
@@ -79,8 +75,11 @@ catch (Exception $e) {
     var_dump(password_verify($password, $results['password']));
 
             if (password_verify($password, $results['password'])) {
-        
-        echo $pseudo . " you are logged in!";
+          session_start(); 
+          $_SESSION['ID'] = $results['ID'];
+          $_SESSION['pseudo'] = $pseudo;
+          $_SESSION['success'] = "You are now logged in";
+          header('location: index.php');
         return;
       }
               else {
@@ -90,26 +89,22 @@ catch (Exception $e) {
     
       }
 
-   
-// }
 
+    echo 'You do not exist, subscribe!';
 
-
-
-echo 'You do not exist, subscribe!';
-
-
-
-
-// login($db, $response, $pseudo, $password);
+   echo '<input type="submit" name="subscribe" value="subscribe" src="subscribe.php" href ="subscribe.php" onclick = "subscribe()">';
 
 // frees up the connection to the server so that other SQL statements may be issued, but leaves the statement in a state that enables it to be executed again.
 $response->closeCursor();
 
 
-
 }
 
+?>
 
+<script type="text/javascript"> 
 
-  ?>
+function subscribe() {
+  <?php include('subscribe.php'); ?>
+}
+  </script>
