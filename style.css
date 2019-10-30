@@ -1,0 +1,43 @@
+ 
+body { 
+
+	background-color: #242038 !important; 
+	width: 100%;
+	height: 100%;
+	}
+	
+.poster img{
+    height: 300px;
+	
+}
+.poster {
+    margin: 20px;
+}
+
+ul{
+    list-style: none;
+    display : flex ;
+    flex-wrap:wrap;
+}
+
+.card {
+	margin:auto;
+	}
+	
+	#comment{
+	
+	margin-left: 275px;
+	}
+	
+	.espacecom {
+	margin:auto;
+	}
+	
+	hr {
+	
+	background-color: black;
+	}
+
+
+
+
