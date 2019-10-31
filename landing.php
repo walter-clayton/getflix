@@ -89,7 +89,7 @@
 <div class="container">
 <div class="card" style="width: 35.2rem;"> 
 <form action ="" method ="POST">
-<label for = "message">Message:</label><input type="text" name="message" placeholder="Your Message..." value="" required><br>
+<label for = "message">Message:</label><input type="text" name="message" placeholder="Your Message..." value="" autocomplete="off" required><br>
 <input type="submit" class="btn btn-warning float-right" value="Send message"><br>
 </form>
 </div>
