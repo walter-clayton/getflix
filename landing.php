@@ -66,7 +66,7 @@
     $demande = $db -> prepare('SELECT *FROM media2 WHERE id = ?');
     $demande-> execute(array( $idlion));
     while($ligne = $demande -> fetch()){
-    echo $ligne['link video']."<br> <div class='card-body'><h5 class='card-title'>".$ligne['title']. '<hr>'.  $ligne['genre']. '<hr>'. $ligne['synopsis'].
+    echo $ligne['linkvideo']."<br> <div class='card-body'><h5 class='card-title'>".$ligne['title']. '<hr>'.  $ligne['genre']. '<hr>'. $ligne['synopsis'].
     "</h5> </div";
 
     }
