@@ -36,15 +36,28 @@ $message = htmlspecialchars($_POST['message']);
 <?php include("header.php"); ?>
 <div class="container" style="padding-top:3%;">
 <div class="card" style="width: 35.2rem;">
-<iframe width="560" height="315" src="https://www.youtube.com/embed/x9gkHthYj4U" 
-frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
-allowfullscreen></iframe> <br>
-  <div class="card-body">
-    <h5 class="card-title">Captain fantastic VF</h5>
-    <p class="card-text">Dans les forêts reculées du nord-ouest des États-Unis, vivant isolé de la société, un père dévoué a consacré sa vie <br> 
-toute entière à faire de ses six jeunes enfants d'extraordinaires adultes. Cependant, quand le destin frappe sa famille, <br>
- ils doivent abandonner ce paradis qu'il avait créé pour eux. La découverte du monde extérieur va l'obliger à questionner <br>
-ses méthodes d'éducation et remettre en cause tout ce qu'il leur a appris.</p>
+
+  <!-- ADDED BY HAMZA -->
+<?php
+    $db = new PDO('mysql:host=localhost;dbname=getflix', 'root', '', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+    if(isset($_GET['id'])) {
+        $idlion = $_GET['id'];
+    
+    $demande = $db -> prepare('SELECT *FROM media2 WHERE id = ?');
+    $demande-> execute(array( $idlion));
+    while($ligne = $demande -> fetch()){
+
+    echo $ligne['linkvideo']."<br> <div class='card-body'><h5 class='card-title'>".$ligne['title']. '<hr>'. $ligne['date']. '<hr>' . $ligne['genre']. '<hr>'. $ligne['synopsis'].
+
+    "</h5> </div";
+
+
+    }
+    }
+    
+    ?>
+<!-- HAMZA END -->
+    <p class="card-text"></p>
   </div>
   <ul class="list-group list-group-flush">
     <li class="list-group-item">Un film réalisé par Matt Ross <br>
