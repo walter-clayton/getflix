@@ -7,19 +7,18 @@ body {
 	}
 	
 .poster img{
-
-    height: 300px;
-
+    height: 300px !important;
 	
 }
 .poster {
-    margin: 20px;
+    margin: 0px !important;
 }
 
 ul{
     list-style: none;
     display : flex ;
-    flex-wrap:wrap;
+	flex-wrap:wrap;
+	
 }
 
 .card {
