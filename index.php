@@ -1,41 +1,43 @@
 
-
-<!DOCTYPE html>
-<html>
-<head>
-
-
-	<meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- STYLESHEET -->
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <!-- BOOTSTRAP -->
-	
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-	<!-- FONTAWESOME -->
-	<script src="https://kit.fontawesome.com/a076d05399.js"></script>
-	<!-- FAVICON -->
-
-<!--  SAMUEL SCROLL-->
-	<script type="text/javascript" src="app.js"></script>
-<!--  SAMUEL SCROLL-->
-  
-  
-	<link rel='icon' href='./images/icon.ico' type='image/x-icon' >
-
-
-
-	<title>GetFlix</title>
-
-	
-</head>
-<body>
 <!-- HEADER -->
+          <?php 
+    session_start(); 
+
+  if (!isset($_SESSION['pseudo'])) {
+    $_SESSION['msg'] = "You must log in first";
+    echo '<h1 style="color: white;">' .'you must login to add comments!' . '</h1>';
+    header('location: signIn.php');
+  }
+
+        ?>
 
 <?php include("header.php"); ?>
-  
+
+
+
+    <div class="content">
+    <!-- notification message -->
+    <?php if (isset($_SESSION['success'])) : ?>
+      <div class="error success" >
+        <span style="color: white;">
+          <?php 
+            echo $_SESSION['success']; 
+          ?>
+          </span>
+      </div>
+    <?php endif ?>
+
+    <!-- logged in user information -->
+    <?php  if (isset($_SESSION['pseudo'])) : ?>
+      <p style="color : white;">Welcome <strong> <?php echo $_SESSION['pseudo']; ?> </strong></p>
+      <?php endif ?>
+
+      <p> <a href="index.php?logout='1'" style="color: red;" onclick ="logout();" name="logout" >logout <?php include('logout.php') ?> </a> </p>
+    
+</div>
+
+
   <!--  SAMUEL SCROLL-->
-<div class="container-fluid" style="display:flex; justify-content:center;">
   <div class="container" style="padding-top:3%;">
 <h2 style="color:white;">Populaire</h2>
   <div class="populaire-carousel">
@@ -80,7 +82,7 @@
       <ul >
 	  <li class ="poster"><a href="landing.php?id=5"><img  src="Photos/angry.jpg" alt="Angry Bird"></a></li>
 	  <li class ="poster"><a href="landing.php?id=6"><img  src="Photos/terminator.jpg" alt="Terminator"></a></li>
-	  <li class ="poster"><a href="landing.php?id=7"><img  src="Photos/once.jpg" alt="Tarantino" ></a></li>
+	  <li class ="poster"><a href="landing.php?id=7"><img  src="Photos/once.jpg" alt="Once Upon a Time... in Hollywood" ></a></li>
 	  <li class ="poster"><a href="landing.php?id=8"><img  src="Photos/dora.jpg" alt="Dora"></a></li>
 		
   </ul>
@@ -215,9 +217,9 @@
 	<div class="carousel-item active ">
 		<ul>
 		  <li class ="poster"><a href="landing.php?id=25"><img  src="Photos/capitaine.jpg" alt="Capitain Fantastic" ></a></li>
-		  <li class ="poster"><a href="landing.php?id=26"><img  src="Photos/america.jpg" alt="Sweet dream of america" ></a></li>
+		  <li class ="poster"><a href="landing.php?id=26"><img  src="Photos/america.jpg" alt="requiem for the american dream" ></a></li>
 		  <li class ="poster"><a href="landing.php?id=27"><img  src="Photos/nature.jpg" alt="Force et nature"></a></li>
-		  <li class ="poster"><a href="landing.php?id=28"><img  src="Photos/queen.jpg" alt="Mc Queeen" ></a></li>
+		  <li class ="poster"><a href="landing.php?id=28"><img  src="Photos/queen.jpg" alt="Mc Queen" ></a></li>
   </ul>
   </div>
 
@@ -235,12 +237,12 @@
 </div>
 </div>
 </div>
-</div>
  <!--------FOOTER------->
 <?php include("footer.php"); ?>
 
 </body>
 </html>
+
 <!-- BOOTSTRAP JS -->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
