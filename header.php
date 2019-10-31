@@ -50,7 +50,6 @@
   <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
     
   <a class="navbar-brand hover" href="index.php"><span class="hover" style="color:#F7ECE1;"> GETFLIX</span> </a>
-  <!-- PROVISOIRE --> <a href="landing.php"><span style=color:#F7ECE1;>LANDING</span></a> <!-- PROVISOIRE -->
   </div>
     <form class="form-inline smallsearch col-sm-8 col-xs-11">
     <div class="row col-11">

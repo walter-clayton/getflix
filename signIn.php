@@ -1,10 +1,4 @@
 
-<?php
-
-$pseudo = 'hamza';
-$password = 'hamza';
-$pass_hashe = '';
-
           <?php 
     session_start(); 
 
@@ -106,19 +100,10 @@ catch (Exception $e) {
 $response->closeCursor();
 
 
-  
-  ?>
+
 
   
 
 }
 
 ?>
-
-<script type="text/javascript"> 
-
-function subscribe() {
-  <?php include('subscribe.php'); ?>
-}
-  </script>
-

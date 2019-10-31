@@ -3,27 +3,11 @@
           <?php 
     session_start(); 
 
-
-<?php
-    // Page faisant appel aux sessions
-    session_start();
-
-    // Vérification de l'autorisation
-    if (!$_SESSION["membre"]) {
-       // Si l'utilisateur n'est pas autorisé il est reconduit
-       // sur le formulaire d'identification
-       header("Location: member.php");
-       die();
-    }   
-?>
-
-<?php
-
-
   if (!isset($_SESSION['pseudo'])) {
     $_SESSION['msg'] = "You must log in first";
     echo '<h1 style="color: white;">' .'you must login to add comments!' . '</h1>';
-  }
+     die();
+   }
 
     ?>
 
@@ -52,7 +36,6 @@
 <?php include("header.php"); ?>   
 
  <div class="content">
-      <h1 style="color: white;">HELLO</h1>
     <!-- notification message -->
     <?php if (isset($_SESSION['success'])) : ?>
       <div class="error success" >
@@ -74,6 +57,7 @@
 </div>
 <div class="container" style="padding-top:3%;">
 <div class="card" style="width: 35.2rem;">
+  <!-- ADDED BY HAMZA -->
 <?php
     $db = new PDO('mysql:host=localhost;dbname=getflix', 'root', '', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
     if(isset($_GET['id'])) {
@@ -82,14 +66,14 @@
     $demande = $db -> prepare('SELECT *FROM media2 WHERE id = ?');
     $demande-> execute(array( $idlion));
     while($ligne = $demande -> fetch()){
-    echo $ligne['link_video']."<br> <div class='card-body'><h5 class='card-title'>".$ligne['title']. '<hr>'.  $ligne['genre']. '<hr>'. $ligne['synopsis'].
+    echo $ligne['link video']."<br> <div class='card-body'><h5 class='card-title'>".$ligne['title']. '<hr>'.  $ligne['genre']. '<hr>'. $ligne['synopsis'].
     "</h5> </div";
 
     }
     }
     
     ?>
-
+<!-- HAMZA END -->
     <p class="card-text"></p>
   </div>
   <ul class="list-group list-group-flush">
@@ -106,7 +90,6 @@
 <div class="container">
 <div class="card" style="width: 35.2rem;"> 
 <form action ="" method ="POST">
-<label style="padding-left:2%; padding-top:5%;" for =   value= "<?php $pseudo ?>" required><br>
 <label for = "message">Message:</label><input type="text" name="message" placeholder="Your Message..." value="" required><br>
 <input type="submit" class="btn btn-warning float-right" value="Send message"><br>
 </form>
@@ -122,10 +105,16 @@ $db = new PDO('mysql:host=localhost;dbname=getflix', 'root', '', array(PDO::ATTR
 catch (Exception $e) {
 die('Error : ' . $e->getMessage());
 }
+if(isset($_SESSION['pseudo'])) {
 
+
+
+}
 // insert the input into the database
-if(isset($_POST['pseudo']) && isset($_POST['message']) && !empty($_POST['pseudo']) && !empty($_POST['message'])) {
+if( isset($_POST['message']) && !empty($_POST['message'])) {
 
+  $message = $_POST['message'];
+  $pseudo = $_SESSION['pseudo'];
   $req = $db->prepare('INSERT INTO commentaires (pseudo, message, date_comment) VALUES (? , ?, NOW())');
   $req->execute(array($pseudo, $message));
 }
@@ -143,7 +132,10 @@ $response = $db->query('SELECT * FROM commentaires ORDER BY ID DESC LIMIT 0,10')
 </p>
 <div class="collapse col-md-9 text-align: center;"    id="collapseExample">
 
-<div id= "comment" class="card card-body "> 
+<div id= "comment" class="card card-body ">
+
+
+
 <?php 
   // get the data and display it on the page
 while ($db = $response->fetch()){

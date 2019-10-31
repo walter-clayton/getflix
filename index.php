@@ -15,7 +15,6 @@
 
 
     <div class="content">
-      <h1 style="color: white;">HELLO</h1>
     <!-- notification message -->
     <?php if (isset($_SESSION['success'])) : ?>
       <div class="error success" >
@@ -242,21 +241,6 @@
 
 </body>
 </html>
-<script type="text/javascript">
-  
-li.onclick = () => {
-          var xmlhttp = new XMLHttpRequest();
-          xmlhttp.onreadystatechange = function() {
-              if (this.readyState == 4 && this.status == 200) {
-                window.location.href = `${window.location}?i=${elem.id}`
-              }
-          };
-          xmlhttp.open("GET", "index.php?i=" + elem.id, true);
-          xmlhttp.send();
-        }
-
-</script>
-
 
 <!-- BOOTSTRAP JS -->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
