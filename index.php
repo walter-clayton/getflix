@@ -6,6 +6,7 @@
   if (!isset($_SESSION['pseudo'])) {
     $_SESSION['msg'] = "You must log in first";
     echo '<h1 style="color: white;">' .'you must login to add comments!' . '</h1>';
+    header('location: signIn.php');
   }
 
         ?>
