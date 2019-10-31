@@ -1,6 +1,4 @@
-
-
-          <?php 
+<?php 
     session_start(); 
 
   if (!isset($_SESSION['pseudo'])) {
@@ -66,8 +64,9 @@
     $demande = $db -> prepare('SELECT *FROM media2 WHERE id = ?');
     $demande-> execute(array( $idlion));
     while($ligne = $demande -> fetch()){
-    echo $ligne['link video']."<br> <div class='card-body'><h5 class='card-title'>".$ligne['title']. '<hr>'.  $ligne['genre']. '<hr>'. $ligne['synopsis'].
+    echo $ligne['linkvideo']."<br> <div class='card-body'><h5 class='card-title'>".$ligne['title']. '<hr>'. $ligne['date']. '<hr>' . $ligne['genre']. '<hr>'. $ligne['synopsis'].
     "</h5> </div";
+
 
     }
     }
@@ -115,13 +114,14 @@ if( isset($_POST['message']) && !empty($_POST['message'])) {
 
   $message = $_POST['message'];
   $pseudo = $_SESSION['pseudo'];
-  $req = $db->prepare('INSERT INTO commentaires (pseudo, message, date_comment) VALUES (? , ?, NOW())');
-  $req->execute(array($pseudo, $message));
+  $req = $db->prepare('INSERT INTO commentaires (idvideo,pseudo, message, date_comment) VALUES (?,? , ?, NOW())');
+  $req->execute(array($idlion, $pseudo, $message));
 }
 
 
 // get all data from commentaires table, and most recent at the top, and set a limit of 10 lines
-$response = $db->query('SELECT * FROM commentaires ORDER BY ID DESC LIMIT 0,10');
+$response = $db->prepare('SELECT * FROM commentaires WHERE idvideo=? ORDER BY date_comment DESC ');
+$response -> execute(array($idlion));
 ?>
 
 <p>
