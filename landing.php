@@ -47,7 +47,7 @@
 
     <!-- logged in user information -->
     <?php  if (isset($_SESSION['pseudo'])) : ?>
-      <p style="color : white;">Welcome <strong> <?php echo $_SESSION['pseudo']; ?> </strong></p>
+      <p style="color : white;">welcome <strong> <?php echo $_SESSION['pseudo']; ?> </strong></p> 
       <?php endif ?>
 
       <p> <a href="index.php?logout='1'" style="color: red;" name="logout" >logout</a> </p>
