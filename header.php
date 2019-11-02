@@ -39,36 +39,39 @@
 <header>
   <!-- NAVBAR -->
  <!--  DEV MOUAD -->
-<div class="container-fluid-fullwidth flex-row ">
+ <div class="container-fluid-fullwidth">
 	
 	<nav class="navbar navbar-expand-lg navbar-light bg-dark">
   
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
+    
   </button>
 
   <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
     
   <a class="navbar-brand hover" href="index.php"><span class="hover" style="color:#F7ECE1;"> GETFLIX</span> </a>
-  <!-- PROVISOIRE --> <a href="landing.php"><span style=color:#F7ECE1;>LANDING</span></a> <!-- PROVISOIRE -->
   </div>
-    <form class="form-inline smallsearch col-sm-8 col-xs-11">
-    <div class="row col-11">
-      <input class="form-control col-xs-11 col-9"  type="search" placeholder="Search">&nbsp;
-      <button class="btn btn-outline-warning " type="submit" autocomplete="off" required>Search</button>
+    <form class="form-inline smallsearch col-sm-8 col-xs-11" name="form" action="searchpage.php">
+    <div class="row col-10">
+      <button class="btn btn-outline-warning col-xs-11 col-11 ml-auto " type="submit" autocomplete="off" required>Chercher un film</button>
   </form>
 
 </form>
   </div >
 
+
 <div class="collapse navbar-collapse justify-content-center" id="navbarTogglerDemo02">
 
-<a href="subscribe.php"  style="color:#F7ECE1;" class>Register</a>
-  <a href="signIn.php"  style="color:#F7ECE1;" class>/Login</a>
+<?php  if (isset($_SESSION['pseudo'])) : ?>
+      <p style="color : white;">Welcome <strong> <?php echo $_SESSION['pseudo']; ?> </strong></p>
+      <?php endif ?>
+   <p> <a href="index.php?logout='1'" style="color: red;" onclick ="logout();" name="logout" >&nbsp;logout <?php include('logout.php') ?> </a> </p>
+
 </div>
 
 </nav>
  </div>
+
 
 <!-- END NAVBAR -->
 <!-- END DEV MOUAD -->

@@ -1,51 +1,37 @@
-          <?php 
+<?php 
     session_start(); 
+?>
 
-    ?>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <!-- BOOTSTRAP -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css"><div class="container">
 
-<form class="form-horizontal" action='' method="POST">
+
+
   <fieldset>
-
-    <div id="legend">
-      <legend class="">Sign In</legend>
-    </div>
-    <div class="control-group">
-      <!-- Username -->
-      <label class="control-label"  for="pseudo">Pseudo</label>
-      <div class="controls">
-        <input type="text" id="pseudo" name="pseudo" placeholder="" class="input-xlarge" required="">
-        <p class="help-block">Username can contain any letters or numbers, without spaces</p>
-      </div>
-    </div>
-    <div class="control-group">
-      <!-- Password-->
-      <label class="control-label" for="password">Password</label>
-      <div class="controls">
-        <input type="password" id="password" name="password" placeholder="" class="input-xlarge" required="">
-        <p class="help-block">Password should be at least 4 characters</p>
-      </div>
-    </div>
- 
-    <div class="control-group">
-      <!-- Button -->
-      <div class="controls">
-  <input type="submit" name="submit" value="submit">
-      </div>
-    </div>
-  </fieldset>
-</form>
-
+<form action="" method="POST">
+<div class="m-auto pt-5 w-50">
+<div class="card">
+<h5 class="card-header bg-warning" style="color:white; display:flex; justify-content:center;">Login</h5>
+<div class="card-body">
+<div class="form-group">
+<label for="pseudo">Pseudo</label>
+<input type="text" class="form-control" id="pseudo" name="pseudo" placeholder="Username" autocomplete="off" required>
+</div>
+<div class="form-group">
+<label for="username">Password</label>
+<input type="password" class="form-control" id="password"  name="password"  placeholder="Password" autocomplete="off" required>
+</div>
 
 
 <?php
 
-
 // isset to check whether the variables $pseudo and $message contain anything, it will return FALSE if the value is NULL
-if(isset($_POST['submit'])){ 
+if(isset($_POST['submit'])) { 
 
 $pseudo = '';
 $password = '';
-
 // connect to the server and display errors.
 try{
   $db = new PDO('mysql:host=localhost;dbname=getflix', 'root', '', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
@@ -56,7 +42,8 @@ catch (Exception $e) {
   die('Error : ' . $e->getMessage());
 }
   
-
+    $wrongpassword  = '';
+    $notexist = '';
     $pseudo = htmlspecialchars($_POST['pseudo']); 
     $password = htmlspecialchars($_POST['password']);
     
@@ -67,44 +54,63 @@ catch (Exception $e) {
     $results = $response->fetch();
 
 
-    if ( $pseudo === $results['pseudo']) {
+    if ( $pseudo == $results['pseudo']) {
+      $notexist = '';
+      
 
-    echo  $pseudo . " exists in the database!";
-    var_dump($results['password']);
-    var_dump($password);
-    var_dump(password_verify($password, $results['password']));
 
-            if (password_verify($password, $results['password'])) {
+      if (password_verify($password, $results['password'])) {
           session_start(); 
+          $wrongpassword = 'goooood';
           $_SESSION['ID'] = $results['ID'];
           $_SESSION['pseudo'] = $pseudo;
-          $_SESSION['success'] = "You are now logged in";
+          $_SESSION['success'] = "";
           header('location: index.php');
-        return;
+        
       }
               else {
-        echo $pseudo . " wrong password!";
-        return;
+                $wrongpassword = 'Wrong password !';
+                
                  }
     
       }
 
 
-    echo 'You do not exist, subscribe!';
-
-   echo '<input type="submit" name="subscribe" value="subscribe" src="subscribe.php" href ="subscribe.php" onclick = "subscribe()">';
+                  else {
+          $notexist ='You do not exist, register!'; 
+                
+                 }
 
 // frees up the connection to the server so that other SQL statements may be issued, but leaves the statement in a state that enables it to be executed again.
-$response->closeCursor();
 
-
+      
+  
 }
+
 
 ?>
 
-<script type="text/javascript"> 
+<small class="form-text text-danger mb-3"></small>
+<hr>
 
-function subscribe() {
-  <?php include('subscribe.php'); ?>
-}
-  </script>
+<p class="text-right">
+  <div style="color:red;">
+     <?php if(isset($wrongpassword)){
+      echo $wrongpassword;
+     } ?>
+     <?php if(isset($notexist)){
+      echo $notexist;
+    }
+       ?>
+
+    <a href="subscribe.php"style="margin-top:2%" >Register</a>
+  </div>
+<button type="submit" class="btn btn-warning float-right" name="submit" value="submit">Submit</button>
+</p>
+
+</div>
+</div>
+</div>
+
+</form>
+  </fieldset>

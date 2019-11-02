@@ -1,44 +1,32 @@
+<?php 
+    session_start(); 
+    ?>
 
-<form class="form-horizontal" action='' method="POST">
-  <fieldset>
 
-    <div id="legend">
-      <legend class="">Register</legend>
-    </div>
-    <div class="control-group">
-      <!-- Username -->
-      <label class="control-label"  for="pseudo">Pseudo</label>
-      <div class="controls">
-        <input type="text" id="pseudo" name="pseudo" placeholder="" class="input-xlarge" required="">
-        <p class="help-block">Username can contain any letters or numbers, without spaces</p>
-      </div>
-    </div>
-    <div class="control-group">
-      <!-- Password-->
-      <label class="control-label" for="password">Password</label>
-      <div class="controls">
-        <input type="password" id="password" name="password" placeholder="" class="input-xlarge" required="">
-        <p class="help-block">Password should be at least 4 characters</p>
-      </div>
-    </div>
- 
-    <div class="control-group">
-      <!-- Password -->
-      <label class="control-label"  for="password_confirm">Password (Confirm)</label>
-      <div class="controls">
-        <input type="password" id="password_confirm" name="password_confirm" placeholder="" class="input-xlarge" required="">
-        <p class="help-block">Please confirm password</p>
-      </div>
-    </div>
- 
-    <div class="control-group">
-      <!-- Button -->
-      <div class="controls">
-  <input type="submit" name="submit" value="submit">
-      </div>
-    </div>
-  </fieldset>
-</form>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <!-- BOOTSTRAP -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css"><div class="container">
+
+
+
+<fieldset>
+<form action="" method="POST">
+<div class="m-auto pt-5 w-50">
+<div class="card">
+<h5 class="card-header bg-warning" style="color:white; display:flex; justify-content:center;">Register</h5>
+<div class="card-body">
+<div class="form-group">
+<label for="pseudo">Pseudo</label>
+<input type="text" class="form-control" id="pseudo" name="pseudo" placeholder="pseudo" required="">
+</div>
+<div class="form-group">
+<label for="username">Password</label>
+<input type="password" class="form-control" id="password"  name="password"  placeholder="Password" required="">
+</div><div class="form-group">
+<label for="username">Password Confirm</label>
+<input type="password" class="form-control" id="password"  name="password_confirm"  placeholder="password_confirm" required="">
+</div>
 
 
 
@@ -48,7 +36,7 @@
 
 // isset to check whether the variables $pseudo and $message contain anything, it will return FALSE if the value is NULL
 
-while(isset($_POST['submit'])){ 
+if(isset($_POST['submit'])){ 
       // connect to the server and display errors.
     try{
       $db = new PDO('mysql:host=localhost;dbname=getflix', 'root', '', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
@@ -65,7 +53,7 @@ while(isset($_POST['submit'])){
 
     if (empty($pseudo)) {
       echo "you need to put in a pseudo name!";
-      return;
+     
     }
 
         // get all data from members table, and only find the pseudo put in by user and see if it matches the pseudo from the table
@@ -76,8 +64,8 @@ while(isset($_POST['submit'])){
         $results = $response->fetch();
         // make sure there isn't already the same pseudo in the table
         if ($results['pseudo'] === $pseudo) {
-          echo "your pseudo already exists in the database! Put in a different pseudo!";
-          return;
+          $pseudoexists = 'your pseudo already exists in the database! Put in a different pseudo!';
+          
         }
 
 
@@ -109,13 +97,13 @@ while(isset($_POST['submit'])){
 
       // frees up the connection to the server so that other SQL statements may be issued, but leaves the statement in a state that enables it to be executed again.
       $response->closeCursor();
-      return;
+     
     }
 
     else {
 
       echo 'the passwords need to match!';
-      return;
+      
     }
 
 
@@ -123,4 +111,25 @@ while(isset($_POST['submit'])){
 
  ?>
 
- 
+
+ <small class="form-text text-danger mb-3"></small>
+<hr>
+
+<p class="text-right">
+  <div>
+     <?php if(isset($pseudoexists)){
+      echo $pseudoexists;
+     } ?>
+
+    <a href="signIn.php"style="margin-top:2%" >Login</a>
+
+  </div>
+<button type="submit" class="btn btn-warning float-right" name="submit" value="submit">Submit</button>
+</p>
+
+</div>
+</div>
+</div>
+
+</form>
+  </fieldset>
