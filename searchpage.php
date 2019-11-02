@@ -33,20 +33,20 @@
 	<nav class="navbar navbar-expand-lg navbar-light bg-dark">
   
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
   </button>
 
   <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
     
   <a class="navbar-brand hover" href="index.php"><span class="hover" style="color:#F7ECE1;"> GETFLIX</span> </a>
-  <!-- PROVISOIRE --> <a href="landing.php"><span style=color:#F7ECE1;>LANDING</span></a> <!-- PROVISOIRE -->
+  
 </div>
     
-    <form class="form-inline smallsearch col-sm-8 col-xs-11" action="searchpage.php">
+    <form class="form-inline smallsearch col-sm-8 col-xs-11" style="height:24px;">
 		<div class="row col-11">
       <input class="form-control col-xs-11 col-9"  type="search" id="myInput" onkeyup="myFunction()"  placeholder="Search">&nbsp;
       
 	</form>
+	
 	
   </div>
   <ul class="nav navbar-nav navbar-right-info">
