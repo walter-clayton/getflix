@@ -1,17 +1,9 @@
-<style>
 
-.poster img{
-    height: 300px;
-    margin:20px;
-    }
+<?php 
+	session_start(); 
+	?>
 
-    #myUL {
-  list-style-type: none;
-  display :flex;
-  flex-wrap:wrap;
-  justify-content:center;
-}
-</style>
+	
 
 <!DOCTYPE html>
 <html lang="en">
@@ -40,22 +32,24 @@
   <a class="navbar-brand hover" href="index.php"><span class="hover" style="color:#F7ECE1;"> GETFLIX</span> </a>
   
 </div>
-    
-    <form class="form-inline smallsearch col-sm-8 col-xs-11" style="height:24px;">
+
+    <form class="form-inline smallsearch col-sm-8 col-xs-11" style="height:24px; padding-bottom:3%;padding-left:5%;">
 		<div class="row col-11">
-      <input class="form-control col-xs-11 col-9"  type="search" id="myInput" onkeyup="myFunction()"  placeholder="Search">&nbsp;
+      <input class="form-control col-xs-11 col-11"  type="search" id="myInput" onkeyup="myFunction()"  placeholder="Search">&nbsp;
       
 	</form>
-	</div >
-
-
-<div class="collapse navbar-collapse justify-content-center" id="navbarTogglerDemo02">
+	
+	
+  </div>
+  <div class="collapse navbar-collapse justify-content-center"  id="navbarTogglerDemo02">
+	
 
 <?php  if (isset($_SESSION['pseudo'])) : ?>
       <p style="color : white;">Welcome <strong> <?php echo $_SESSION['pseudo']; ?> </strong></p>
       <?php endif ?>
    <p> <a href="index.php?logout='1'" style="color: red;" onclick ="logout();" name="logout" >&nbsp;logout <?php include('logout.php') ?> </a> </p>
 </div>
+
 </div>
 
 </nav>
@@ -65,7 +59,7 @@
 <!-- END DEV MOUAD -->
 
 
-<ul id="myUL">
+<ul id="myUL" class="container">
 
 <li class ="poster"><a id="black mirror" herf="landing.php?id=9"><img  src="Photos/blackmirror.jpg" alt="Black Mirror" ></a></li>
 		  <li class ="poster"><a id="The Boys" herf="landing.php?id=10"><img  src="Photos/boys.jpg" alt="The Boys" ></a></li>
@@ -83,6 +77,7 @@
 	  <li class ="poster"><a id="Happy" herf="landing.php?id=14"><img  src="Photos/happy.jpg" alt="Happy"></a></li>
 	  <li class ="poster"><a id="The walking dead" herf="landing.php?id=15"><img  src="Photos/walking.jpg" alt="The walking dead" ></a></li>
 	  <li class ="poster"><a id="Heroes" herf="landing.php?id=16"><img  src="Photos/heroes.jpg" alt="Heroes"></a></li>
+
 	  <li class ="poster"><a id="Les dents de la mer" herf="www.coin.com"><img  src="Photos/dentmer.jpg" alt="Les dents de la mer"></a></li>
 	  <li class ="poster"><a id="zombieland 2" herf="www.coin.com"><img  src="Photos/zombieland.jpg" alt="zombieland 2"></a></li>
 	  <li class ="poster"><a id="Rambo" herf="www.coin.com"><img  src="Photos/rambo.jpg" alt="Rambo" ></a></li>
@@ -103,7 +98,9 @@
 
 <!-- END NAVBAR -->
 <!-- END DEV MOUAD -->
+
  <!--------FOOTER------->
  <?php include("footer.php"); ?>
+
 </body>
 </html>

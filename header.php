@@ -66,11 +66,12 @@
       <p style="color : white;">Welcome <strong> <?php echo $_SESSION['pseudo']; ?> </strong></p>
       <?php endif ?>
    <p> <a href="index.php?logout='1'" style="color: red;" onclick ="logout();" name="logout" >&nbsp;logout <?php include('logout.php') ?> </a> </p>
-</div>
+
 </div>
 
 </nav>
  </div>
+
 
 <!-- END NAVBAR -->
 <!-- END DEV MOUAD -->
