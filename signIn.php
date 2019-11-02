@@ -55,7 +55,9 @@ catch (Exception $e) {
 
 
     if ( $pseudo == $results['pseudo']) {
+
       $notexist = '';
+
       
 
 
@@ -64,12 +66,16 @@ catch (Exception $e) {
           $wrongpassword = 'goooood';
           $_SESSION['ID'] = $results['ID'];
           $_SESSION['pseudo'] = $pseudo;
+
           $_SESSION['success'] = "";
+
           header('location: index.php');
         
       }
               else {
+
                 $wrongpassword = 'Wrong password !';
+
                 
                  }
     
@@ -83,8 +89,6 @@ catch (Exception $e) {
 
 // frees up the connection to the server so that other SQL statements may be issued, but leaves the statement in a state that enables it to be executed again.
 
-      
-  
 }
 
 
@@ -94,7 +98,9 @@ catch (Exception $e) {
 <hr>
 
 <p class="text-right">
+
   <div style="color:red;">
+
      <?php if(isset($wrongpassword)){
       echo $wrongpassword;
      } ?>
