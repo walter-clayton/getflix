@@ -46,19 +46,23 @@
       <input class="form-control col-xs-11 col-9"  type="search" id="myInput" onkeyup="myFunction()"  placeholder="Search">&nbsp;
       
 	</form>
-	
-	
-  </div>
-  <ul class="nav navbar-nav navbar-right-info">
-	<li class>
-	<a href="member.php"  style="color:#F7ECE1;" class>Register</a>
-	<li class>
-  <a href="connexion.php"  style="color:#F7ECE1;" class>/Login</a>
-  
+	</div >
+
+
+<div class="collapse navbar-collapse justify-content-center" id="navbarTogglerDemo02">
+
+<?php  if (isset($_SESSION['pseudo'])) : ?>
+      <p style="color : white;">Welcome <strong> <?php echo $_SESSION['pseudo']; ?> </strong></p>
+      <?php endif ?>
+   <p> <a href="index.php?logout='1'" style="color: red;" onclick ="logout();" name="logout" >&nbsp;logout <?php include('logout.php') ?> </a> </p>
 </div>
-</nav>
 </div>
 
+</nav>
+ </div>
+
+<!-- END NAVBAR -->
+<!-- END DEV MOUAD -->
 
 
 <ul id="myUL">
@@ -99,6 +103,7 @@
 
 <!-- END NAVBAR -->
 <!-- END DEV MOUAD -->
-
+ <!--------FOOTER------->
+ <?php include("footer.php"); ?>
 </body>
 </html>

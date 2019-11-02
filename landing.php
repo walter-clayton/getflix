@@ -1,5 +1,12 @@
 <?php 
-session_start(); 
+    session_start(); 
+
+  if (!isset($_SESSION['pseudo'])) {
+    $_SESSION['msg'] = "You must log in first";
+    echo '<h1 style="color: white;">' .'you must login to add comments!' . '</h1>';
+     die();
+   }
+
     ?>
 
 <!DOCTYPE html>
@@ -26,10 +33,23 @@ session_start();
 <!-- DEV HAMZA -->
 <?php include("header.php"); ?>   
 
+ <div class="content">
+    <!-- notification message -->
+    <?php if (isset($_SESSION['success'])) : ?>
+      <div class="error success" >
+        <span style="color: white;">
+          <?php 
+            echo $_SESSION['success']; 
+          ?>
+          </span>
+      </div>
+    <?php endif ?>
 
+    <!-- logged in user information -->
+    
+</div>
 <div class="container" style="padding-top:3%;">
-<div class="card col-sm-12" style="width: 35.2rem;">
-
+<div class="card" style="width: 35.2rem;">
   <!-- ADDED BY HAMZA -->
 <?php
     $db = new PDO('mysql:host=localhost;dbname=getflix', 'root', '', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
@@ -39,7 +59,6 @@ session_start();
     $demande = $db -> prepare('SELECT *FROM media2 WHERE id = ?');
     $demande-> execute(array( $idlion));
     while($ligne = $demande -> fetch()){
-
     echo $ligne['linkvideo']."<br> <div class='card-body'><h5 class='card-title'>".$ligne['title']. '<hr>'. $ligne['date']. '<hr>' . $ligne['genre']. '<hr>'. $ligne['synopsis'].
     "</h5> </div";
 
@@ -67,7 +86,6 @@ session_start();
 <form action ="" method ="POST" class="container-fluid">
 <label for = "message"></label><textarea type="text" name="message" placeholder="Your Message..." value="" rows ="3" required class="container-fluid"></textarea><br>
 <input type="submit" class="btn btn-warning  container-fluid" value="Send message"><br>
-
 </form>
 </div>
 
@@ -107,10 +125,9 @@ $response -> execute(array($idlion));
     Afficher commentaire
   </button> </center>
 </p>
-<div class="collapse col-sm-12 text-align: center;"    id="collapseExample">
+<div class="collapse col-md-9 text-align: center;"    id="collapseExample">
 
 <div id= "comment" class="card card-body ">
-
 
 
 
