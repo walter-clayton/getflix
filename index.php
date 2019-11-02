@@ -1,17 +1,30 @@
 
 <!-- HEADER -->
-<?php 
-    session_start(); 
-
-  if (!isset($_SESSION['pseudo'])) {
-    $_SESSION['msg'] = "You must log in first";
-    echo '<div style="color: white;">' .'you must login to add comments!' . '</div>';
-    header('location: signIn.php');
-  }
-
+ <?php 
+session_start(); 
         ?>
 
 <?php include("header.php"); ?>
+
+
+
+    <div class="content">
+    <!-- notification message -->
+    <?php if (isset($_SESSION['success'])) : ?>
+      <div class="error success" >
+        <span style="color: white;">
+          <?php 
+            echo $_SESSION['success']; 
+          ?>
+          </span>
+      </div>
+    <?php endif ?>
+
+    
+    
+</div>
+
+
 
   <!--  SAMUEL SCROLL-->
   <div class="container" style="padding-top:3%;">

@@ -1,12 +1,5 @@
 <?php 
-    session_start(); 
-
-  if (!isset($_SESSION['pseudo'])) {
-    $_SESSION['msg'] = "You must log in first";
-    echo '<h1 style="color: white;">' .'you must login to add comments!' . '</h1>';
-     die();
-   }
-
+session_start(); 
     ?>
 
 <!DOCTYPE html>
@@ -33,8 +26,10 @@
 <!-- DEV HAMZA -->
 <?php include("header.php"); ?>   
 
+
 <div class="container" style="padding-top:3%;">
 <div class="card col-sm-12" style="width: 35.2rem;">
+
   <!-- ADDED BY HAMZA -->
 <?php
     $db = new PDO('mysql:host=localhost;dbname=getflix', 'root', '', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
@@ -72,6 +67,7 @@
 <form action ="" method ="POST" class="container-fluid">
 <label for = "message"></label><textarea type="text" name="message" placeholder="Your Message..." value="" rows ="3" required class="container-fluid"></textarea><br>
 <input type="submit" class="btn btn-warning  container-fluid" value="Send message"><br>
+
 </form>
 </div>
 
@@ -114,6 +110,7 @@ $response -> execute(array($idlion));
 <div class="collapse col-sm-12 text-align: center;"    id="collapseExample">
 
 <div id= "comment" class="card card-body ">
+
 
 
 

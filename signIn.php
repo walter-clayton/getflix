@@ -17,11 +17,11 @@
 <div class="card-body">
 <div class="form-group">
 <label for="pseudo">Pseudo</label>
-<input type="text" class="form-control" id="pseudo" name="pseudo" placeholder="Username" required="">
+<input type="text" class="form-control" id="pseudo" name="pseudo" placeholder="Username" autocomplete="off" required>
 </div>
 <div class="form-group">
 <label for="username">Password</label>
-<input type="password" class="form-control" id="password"  name="password"  placeholder="Password" required="">
+<input type="password" class="form-control" id="password"  name="password"  placeholder="Password" autocomplete="off" required>
 </div>
 
 
@@ -55,7 +55,9 @@ catch (Exception $e) {
 
 
     if ( $pseudo == $results['pseudo']) {
-      $notexist = 'good';
+
+      $notexist = '';
+
       
 
 
@@ -64,12 +66,16 @@ catch (Exception $e) {
           $wrongpassword = 'goooood';
           $_SESSION['ID'] = $results['ID'];
           $_SESSION['pseudo'] = $pseudo;
-          $_SESSION['success'] = "You are now logged in";
+
+          $_SESSION['success'] = "";
+
           header('location: index.php');
         
       }
               else {
-                $wrongpassword = 'wrong password!';
+
+                $wrongpassword = 'Wrong password !';
+
                 
                  }
     
@@ -82,9 +88,7 @@ catch (Exception $e) {
                  }
 
 // frees up the connection to the server so that other SQL statements may be issued, but leaves the statement in a state that enables it to be executed again.
-$response->closeCursor();
-      echo $wrongpassword;
-   echo $notexist; 
+
 }
 
 
@@ -94,7 +98,9 @@ $response->closeCursor();
 <hr>
 
 <p class="text-right">
-  <div>
+
+  <div style="color:red;">
+
      <?php if(isset($wrongpassword)){
       echo $wrongpassword;
      } ?>
