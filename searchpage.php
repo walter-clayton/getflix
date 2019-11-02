@@ -67,22 +67,22 @@
 
 <ul id="myUL">
 
-<li class ="poster"><a id="black mirror" herf="www.coin.com"><img  src="Photos/blackmirror.jpg" alt="Black Mirror" ></a></li>
-		  <li class ="poster"><a id="The Boys" herf="www.coin.com"><img  src="Photos/boys.jpg" alt="The Boys" ></a></li>
-		  <li class ="poster"><a id="Game of Throne" herf="www.coin.com"><img  src="Photos/gof.jpg" alt="Game of Throne"></a></li>
-		  <li class ="poster"><a id="Mis fits" herf="www.coin.com"><img  src="Photos/misfit.jpg" alt="Mis fits" ></a></li>
-      <li class ="poster"><a  id="Angry Bird" herf="www.coin.com"><img  src="Photos/angry.jpg" alt="Angry Bird"></a></li>
-	  <li class ="poster"><a id="Terminator" herf="www.coin.com"><img  src="Photos/terminator.jpg" alt="Terminator"></a></li>
-	  <li class ="poster"><a id="Tarantino" herf="www.coin.com"><img  src="Photos/once.jpg" alt="Tarantino" ></a></li>
-	  <li class ="poster"><a id="Dora" herf="www.coin.com"><img  src="Photos/dora.jpg" alt="Dora"></a></li>
-    <li class ="poster"><a id="Joker" herf="www.coin.com"><img  src="Photos/joker.jpg" alt="Joker" ></a></li>
-		  <li class ="poster"><a id="ça" herf="www.coin.com"><img  src="Photos/ca.jpg" alt="ça" ></a></li>
-		  <li class ="poster"><a id="fast and furious" herf="www.coin.com"><img  src="Photos/fast.jpg" alt="fast and furious"></a></li>
-		  <li class ="poster"><a id="Président" herf="www.coin.com"><img  src="Photos/president.jpg" alt="Président" ></a></li>
-	  <li class ="poster"><a id="Rick et Morty" herf="www.coin.com"><img  src="Photos/morty.jpg" alt="Rick et Morty"></a></li>
-	  <li class ="poster"><a id="Happy" herf="www.coin.com"><img  src="Photos/happy.jpg" alt="Happy"></a></li>
-	  <li class ="poster"><a id="The walking dead" herf="www.coin.com"><img  src="Photos/walking.jpg" alt="The walking dead" ></a></li>
-	  <li class ="poster"><a id="Heroes" herf="www.coin.com"><img  src="Photos/heroes.jpg" alt="Heroes"></a></li>
+<li class ="poster"><a id="black mirror" herf="landing.php?id=9"><img  src="Photos/blackmirror.jpg" alt="Black Mirror" ></a></li>
+		  <li class ="poster"><a id="The Boys" herf="landing.php?id=10"><img  src="Photos/boys.jpg" alt="The Boys" ></a></li>
+		  <li class ="poster"><a id="Game of Throne" herf="landing.php?id=11"><img  src="Photos/gof.jpg" alt="Game of Throne"></a></li>
+		  <li class ="poster"><a id="Mis fits" herf="landing.php?id=12"><img  src="Photos/misfit.jpg" alt="Mis fits" ></a></li>
+      <li class ="poster"><a  id="Angry Bird" herf="landing.php?id=5"><img  src="Photos/angry.jpg" alt="Angry Bird"></a></li>
+	  <li class ="poster"><a id="Terminator" herf="landing.php?id=6"><img  src="Photos/terminator.jpg" alt="Terminator"></a></li>
+	  <li class ="poster"><a id="Tarantino" herf="landing.php?id=6"><img  src="Photos/once.jpg" alt="Tarantino" ></a></li>
+	  <li class ="poster"><a id="Dora" herf="landing.php?id=8"><img  src="Photos/dora.jpg" alt="Dora"></a></li>
+    <li class ="poster"><a id="Joker" href="landing.php?id=1"><img  src="Photos/joker.jpg" alt="Joker" ></a></li>
+		  <li class ="poster"><a id="ça" herf="landing.php?id=2"><img  src="Photos/ca.jpg" alt="ça" ></a></li>
+		  <li class ="poster"><a id="fast and furious" herf="landing.php?id=3"><img  src="Photos/fast.jpg" alt="fast and furious"></a></li>
+		  <li class ="poster"><a id="Président" herf="landing.php?id=4"><img  src="Photos/president.jpg" alt="Président" ></a></li>
+	  <li class ="poster"><a id="Rick et Morty" herf="landing.php?id=13"><img  src="Photos/morty.jpg" alt="Rick et Morty"></a></li>
+	  <li class ="poster"><a id="Happy" herf="landing.php?id=14"><img  src="Photos/happy.jpg" alt="Happy"></a></li>
+	  <li class ="poster"><a id="The walking dead" herf="landing.php?id=15"><img  src="Photos/walking.jpg" alt="The walking dead" ></a></li>
+	  <li class ="poster"><a id="Heroes" herf="landing.php?id=16"><img  src="Photos/heroes.jpg" alt="Heroes"></a></li>
 	  <li class ="poster"><a id="Les dents de la mer" herf="www.coin.com"><img  src="Photos/dentmer.jpg" alt="Les dents de la mer"></a></li>
 	  <li class ="poster"><a id="zombieland 2" herf="www.coin.com"><img  src="Photos/zombieland.jpg" alt="zombieland 2"></a></li>
 	  <li class ="poster"><a id="Rambo" herf="www.coin.com"><img  src="Photos/rambo.jpg" alt="Rambo" ></a></li>
