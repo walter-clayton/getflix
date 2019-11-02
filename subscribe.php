@@ -91,7 +91,7 @@ if(isset($_POST['submit'])){
           session_start();
           $_SESSION['ID'] = $results['ID'];
           $_SESSION['pseudo'] = $pseudo;
-          $_SESSION['success'] = "You are now logged in";
+          $_SESSION['success'] = "";
           header('location: index.php');
 
 
