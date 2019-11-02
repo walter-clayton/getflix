@@ -22,6 +22,7 @@ catch (Exception $e) {
 die('Error : ' . $e->getMessage());
 }
 
+
 // insert the input into the database
 $req = $db->prepare('INSERT INTO minichat(pseudo, message) VALUES (?, ?)');
 $req->execute(array($pseudo, $message));
