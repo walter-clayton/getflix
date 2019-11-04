@@ -18,14 +18,14 @@
 <div class="card-body">
 <div class="form-group">
 <label for="pseudo">Pseudo</label>
-<input type="text" class="form-control" id="pseudo" name="pseudo" placeholder="pseudo" required="">
+<input type="text" class="form-control" id="pseudo" name="pseudo" placeholder="pseudo" required>
 </div>
 <div class="form-group">
 <label for="username">Password</label>
-<input type="password" class="form-control" id="password"  name="password"  placeholder="Password" required="">
+<input type="password" class="form-control" id="password"  name="password"  placeholder="Password" required>
 </div><div class="form-group">
 <label for="username">Password Confirm</label>
-<input type="password" class="form-control" id="password"  name="password_confirm"  placeholder="password_confirm" required="">
+<input type="password" class="form-control" id="password"  name="password_confirm"  placeholder="password_confirm" required>
 </div>
 
 
@@ -91,7 +91,7 @@ if(isset($_POST['submit'])){
           session_start();
           $_SESSION['ID'] = $results['ID'];
           $_SESSION['pseudo'] = $pseudo;
-          $_SESSION['success'] = "You are now logged in";
+          $_SESSION['success'] = "";
           header('location: index.php');
 
 

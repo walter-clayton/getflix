@@ -39,9 +39,7 @@
 <header>
   <!-- NAVBAR -->
  <!--  DEV MOUAD -->
-
  <div class="container-fluid-fullwidth">
-
 	
 	<nav class="navbar navbar-expand-lg navbar-light bg-dark">
   
@@ -53,11 +51,9 @@
     
   <a class="navbar-brand hover" href="index.php"><span class="hover" style="color:#F7ECE1;"> GETFLIX</span> </a>
   </div>
-
     <form class="form-inline smallsearch col-sm-8 col-xs-11" name="form" action="searchpage.php">
     <div class="row col-10">
       <button class="btn btn-outline-warning col-xs-11 col-11 ml-auto " type="submit" autocomplete="off" required>Chercher un film</button>
-
   </form>
 
 </form>
@@ -73,13 +69,20 @@
 
 </div>
 
-</div>
-
 </nav>
  </div>
 
+
 <!-- END NAVBAR -->
 <!-- END DEV MOUAD -->
+
+
 </header>
+
+
+<!-- WALTER creating sessions -->
+
+
+<!-- Walter creating sessions end -->
 
 
