@@ -2,14 +2,14 @@
     session_start(); 
 ?>
 
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <!-- BOOTSTRAP -->
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <!-- BOOTSTRAP -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css"><div class="container">
 
 
 
-  <fieldset>
+<fieldset>
 <form action="" method="POST">
 <div class="m-auto pt-5 w-50">
 <div class="card">
@@ -49,16 +49,16 @@ catch (Exception $e) {
     
 
 
-    // get all data from members table,
+    // get all data from members table, add a condition where the database must find a similar pseudo to the one submitted
     $response = $db->query("SELECT * FROM members WHERE pseudo = '".$pseudo."' ");
     $results = $response->fetch();
 
-
+    // pseudo submitted must be equal to the one from the database
     if ( $pseudo == $results['pseudo']) {
       $notexist = '';
       
 
-
+      // once the password is correct, the user can go to the home page (index), and stay connected with session start
       if (password_verify($password, $results['password'])) {
           session_start(); 
           $wrongpassword = 'goooood';
@@ -81,10 +81,7 @@ catch (Exception $e) {
                 
                  }
 
-// frees up the connection to the server so that other SQL statements may be issued, but leaves the statement in a state that enables it to be executed again.
-
-      
-  
+ 
 }
 
 

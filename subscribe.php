@@ -35,7 +35,6 @@
 
 
 // isset to check whether the variables $pseudo and $message contain anything, it will return FALSE if the value is NULL
-
 if(isset($_POST['submit'])){ 
       // connect to the server and display errors.
     try{
@@ -77,7 +76,7 @@ if(isset($_POST['submit'])){
       $password = $_POST['password'];
       $pass_hashe = password_hash($password, PASSWORD_BCRYPT);
 
-        // insert the input into the database
+      // insert the input into the database
       $req = $db->prepare('INSERT INTO members(pseudo, password, date_subscribed) VALUES (:pseudo, :password, curdate())');
       $req->execute(array(
       'pseudo' => $pseudo, 
