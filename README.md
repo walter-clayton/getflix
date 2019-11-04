@@ -8,6 +8,7 @@ We used the Agile Methodology to complete the task efficiently and on time.
 Agile management from [trello](https://trello.com)
 
 **Take a look ?** [Demo](https://walter-clayton.github.io/getflix/)
+![demo](./Photos/demo.gif)
 
 ## Features
 
