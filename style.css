@@ -10,6 +10,7 @@ body {
 
     height: 300px;
 
+
 	
 }
 .poster {
@@ -39,6 +40,10 @@ ul{
 	
 	background-color: black;
 	}
+h2 {
+	color: white;
+	}
+
 
 
 
