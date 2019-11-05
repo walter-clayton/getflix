@@ -83,7 +83,7 @@
 <li id="Movienum19" class ="poster"><a id="Rambo" herf="www.coin.com"><img  src="Photos/rambo.jpg" alt="Rambo" ></a></li>
 <li id="Movienum20" class ="poster"><a id="Steve Jobs" herf="www.coin.com"><img  src="Photos/jobs.jpg" alt="Steve Jobs"></a></li>
 <li id="Movienum21" class ="poster"><a id="Capitain Fantastic" herf="www.coin.com"><img  src="Photos/capitaine.jpg" alt="Capitain Fantastic" ></a></li>
-<li id="Movienum21" class ="poster"><a id="Sweet dream of america" herf="www.coin.com"><img  src="Photos/america.jpg" alt="Sweet dream of america" ></a></li>
+<li id="Movienum22" class ="poster"><a id="Sweet dream of america" herf="www.coin.com"><img  src="Photos/america.jpg" alt="Sweet dream of america" ></a></li>
 <li id="Movienum23" class ="poster"><a id="Force et nature" herf="www.coin.com"><img  src="Photos/nature.jpg" alt="Force et nature"></a></li>
 <li id="Movienum24" class ="poster"><a id="Mc Queeen" herf="www.coin.com"><img  src="Photos/queen.jpg" alt="Mc Queeen" ></a></li>
 <li id="Movienum25" class ="poster"><a id="Nobody die here" herf="www.coin.com"><img  src="Photos/nobody.jpg" alt="Nobody die here"></a></li>
