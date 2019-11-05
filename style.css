@@ -13,7 +13,8 @@ body {
 	
 }
 .poster {
-    margin: 20px;
+	margin: 20px;
+	position :relative;
 }
 
 ul{
@@ -40,6 +41,17 @@ ul{
 	background-color: black;
 	}
 
-
-
+.price{
+	position : absolute;
+	bottom: 5px;
+	right: 5px;
+	background-color: red;
+	color: white;
+	border-radius: 5px;
+	border : none;
+	cursor: pointer;
+	font-family: sans-serif;
+	font-weight: bold;
+	
+}
 
