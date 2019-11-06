@@ -237,33 +237,7 @@
 
 
 <!--Début Panier-->
-<script>
-  let amount = 0;
-  let amountInfo = document.getElementById('amount');
-
-  window.onclick = ()=>{
-  amount += 1;
-  amountInfo.innerHTML = amount;
-  amountInfo.style.display = 'initial';
-      
-  }
-
-  //Fonction servant à afficher le pop up
-  let affichPopUp = document.getElementById('popUp');
-  function popUp(){
-    if(affichPopUp.style.display == 'none'){
-      affichPopUp.style.display = 'block';
-    }else{
-      affichPopUp.style.display = 'none';
-    }
-  }
-
-
-
-
-
-
-</script>
+<script src="shop.js"></script>
 </body>
 </html>
 

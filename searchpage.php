@@ -12,6 +12,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+
     <!-- BOOTSTRAP -->
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
@@ -41,6 +43,20 @@
 	
 	
   </div>
+
+  <!--Affichage de l'icone panier-->
+  <i id="shop" class="fas fa-shopping-cart fa-2x">
+  
+  <p id="popUp"></p>
+  
+
+  <!--Rond où sera afficher le nombre de film-->
+    <div id="amount">
+      
+    </div>
+  </i>
+
+
   <div class="collapse navbar-collapse justify-content-center"  id="navbarTogglerDemo02">
 	
 

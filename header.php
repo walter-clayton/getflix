@@ -62,14 +62,14 @@
 </form>
   </div >
   <!--Affichage de l'icone panier-->
-  <i  class="fas fa-shopping-cart fa-2x" onclick="popUp()">
+  <i id="shop" class="fas fa-shopping-cart fa-2x">
   
   <p id="popUp"></p>
   
 
   <!--Rond où sera afficher le nombre de film-->
-    <div>
-      <p id="amount"></p>
+    <div id="amount">
+      
     </div>
   </i>
   
