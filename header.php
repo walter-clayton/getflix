@@ -16,10 +16,12 @@
 <!--  SAMUEL SCROLL-->
   <script type="text/javascript" src="app.js"></script>
 <!--  SAMUEL SCROLL-->
+
   
   
   <link rel='icon' href='./images/icon.ico' type='image/x-icon' >
 
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 
 
   <title>GetFlix</title>
@@ -39,6 +41,7 @@
 <header>
   <!-- NAVBAR -->
  <!--  DEV MOUAD -->
+ 
  <div class="container-fluid-fullwidth">
 	
 	<nav class="navbar navbar-expand-lg navbar-light bg-dark">
@@ -58,6 +61,18 @@
 
 </form>
   </div >
+  <!--Affichage de l'icone panier-->
+  <i  class="fas fa-shopping-cart fa-2x" onclick="popUp()">
+  
+  <p id="popUp"></p>
+  
+
+  <!--Rond où sera afficher le nombre de film-->
+    <div>
+      <p id="amount"></p>
+    </div>
+  </i>
+  
 
 
 <div class="collapse navbar-collapse justify-content-center" id="navbarTogglerDemo02">
