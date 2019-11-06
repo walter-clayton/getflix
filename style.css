@@ -40,6 +40,41 @@ ul{
 	background-color: black;
 	}
 
+	/*panier*/
+	.fas{
+		color: #fff;
+		position: relative;
+		cursor: pointer;
+		
+	}
+	.fas div{
+		width: 25px;
+		height: 25px;
+		background-color: red;
+		border-radius : 100px;
+		position: absolute;
+		right: 0;
+		bottom: 0;
+		transform: translate(50%,40%);
+		color: white;
+		font-family: sans-serif;
+		font-size: 14px;
+		text-align: center;
+		line-height: 25px;
+		pointer-events: none;
+		display: none;	
+	}
+
+	#popUp{
+		width: 150px;
+		height: 150px;
+		background-color: #fff;
+		display: none;
+		position: absolute;
+    	left: -51px;
+    	top: 44px;
+    	z-index: 10000;
+	}
 
 
 
