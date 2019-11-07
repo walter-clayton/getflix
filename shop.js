@@ -2,34 +2,36 @@
   let amount = 0;
   const amountInfo = document.getElementById('amount');
   const shop = document.getElementById('shop');
-  let price = 0;
-
-
-  window.onclick = ()=>{
-  amount += 1;
-  amountInfo.innerHTML = amount;
-  amountInfo.style.opacity = '1';
-  
-  }
-
-
-  //Fonction servant à afficher le pop up
-  let affichPopUp = document.getElementById('popUp');
-  function popUp(){
-    if(affichPopUp.style.display == 'none'){
-      affichPopUp.style.display = 'block';
-    }else{
-      affichPopUp.style.display = 'none';
-    }
-  }
+  let price = '';
+  const popUp = document.getElementById('popUp');
+  let order = [];
+  const orderList = document.getElementById("orderList");
+  const arrayPrices = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28]
 
 function putPrice(){
-    for (let i=1;i<=28;i++){
+    arrayPrices.map(elem => {
         price = document.createElement('button');
-        document.getElementById(`Movienum${i}`).appendChild(price) ;
+        document.getElementById(`Movienum${elem}`).appendChild(price) ;
         price.innerHTML = "Buy (3 €)";
         price.className = "price" ;
-    }
 
+        price.onclick = ()=>{
+        amount += 1;
+        amountInfo.innerHTML = amount;
+        amountInfo.style.opacity = '1';
+        order.push({name: document.getElementById(`Movienum${elem}`).childNodes[0].id});
+        fillPopUp(order);
+        }
+    })
 }
 putPrice();
+
+function fillPopUp(order){
+    console.log(order)
+    orderList.innerHTML = "";
+order.map(elem =>{
+    const li = document.createElement('li');
+    orderList.appendChild(li);
+    li.innerHTML = elem.name;
+})
+}

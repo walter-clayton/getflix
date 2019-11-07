@@ -62,7 +62,7 @@ ul{
 		cursor: pointer;
 		
 	}
-	.fas div{
+	#amount{
 		width: 25px;
 		height: 25px;
 		background-color: red;
@@ -81,14 +81,18 @@ ul{
 	}
 
 	#popUp{
-		width: 150px;
-		height: 150px;
+		width: 300px;
+		height: 300px;
 		background-color: #fff;
-		display: none;
+		z-index: 10000;
 		position: absolute;
-    	left: -51px;
-    	top: 44px;
-    	z-index: 10000;
+		top : 150%;
+		left: 50%;
+		transform: translate(-50%);
+		overflow-y: scroll;
+		color: black;
+		font-family: sans-serif;
+		font-size: 15px;
 	}
 
 .poster:hover >.price{
@@ -97,3 +101,24 @@ ul{
 	cursor: pointer;
 
 }
+
+#popUp::-webkit-scrollbar {
+	width: 10px;
+  }
+  
+  #popUp::-webkit-scrollbar-track {
+	background-color: rgba(108, 175, 175, 0.9);
+	box-shadow: inset 0 0 5px grey; 
+	border-radius: 10px;
+  }
+   
+  #popUp::-webkit-scrollbar-thumb {
+	background: rgb(10, 69, 117); 
+	border-radius: 10px;
+  }
+
+  #orderList {
+	  margin: 0;
+	  padding: 0;
+	  flex-direction: column;
+  }
