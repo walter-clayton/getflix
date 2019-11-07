@@ -23,7 +23,6 @@ function putPrice(){
         fillPopUp(order);
         }
     })
-
 }
 putPrice();
 
