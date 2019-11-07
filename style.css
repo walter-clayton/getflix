@@ -131,5 +131,15 @@ ul{
   .orderPoster{
 	  height: 70px;
 
-
   }
+  #orderList div{
+	display: flex;
+	width: 100px;
+}
+#orderList div input{
+	width: 100%;
+	margin: 0 5px 0 5px;
+}
+#orderList p{
+	margin: 0;
+}
