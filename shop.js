@@ -19,20 +19,63 @@ function putPrice(){
         amount += 1;
         amountInfo.innerHTML = amount;
         amountInfo.style.opacity = '1';
-        order.push({name: document.getElementById(`Movienum${elem}`).childNodes[0].id});
-        fillPopUp(order);
+        console.log(document.getElementById(`Movienum${elem}`).childNodes[0].childNodes[0]);
+        if (order.includes(order.filter(elem2 => elem2.name == document.getElementById(`Movienum${elem}`).childNodes[0].id)[0])){
+            order[order.indexOf(order.filter(elem2 => elem2.name == document.getElementById(`Movienum${elem}`).childNodes[0].id)[0])].amount += 1
+        }else{
+            order.push({
+                name: document.getElementById(`Movienum${elem}`).childNodes[0].id,
+                poster: document.getElementById(`Movienum${elem}`).childNodes[0].childNodes[0].src,
+                amount: 1
+            });
+        }
+        fillPopUp();
         }
     })
 }
 putPrice();
 
 
-function fillPopUp(order){
-    console.log(order)
-    orderList.innerHTML = "";
-order.map(elem =>{
-    const li = document.createElement('li');
-    orderList.appendChild(li);
-    li.innerHTML = elem.name; 
-})
+function fillPopUp(){
+        console.log(order)
+        orderList.innerHTML = "";
+        order.map(elem =>{
+        const li = document.createElement('li');
+        const img = document.createElement('img');
+        const p = document.createElement('p');
+        const div = document.createElement('div');
+        const add = document.createElement('button');
+        const remove = document.createElement('button');
+        const input = document.createElement('input');
+        p.innerHTML = elem.name;
+        img.src = elem.poster;
+        img.className = 'orderPoster';
+        input.value = elem.amount;
+        add.innerHTML = "+";
+        remove.innerHTML = "-";
+        orderList.appendChild(li);
+        li.appendChild(img);
+        li.appendChild(p);
+        li.appendChild(div);  
+        div.appendChild(remove);
+        div.appendChild(input);
+        div.appendChild(add);
+        
+        add.onclick = function (){
+            elem.amount++;
+            input.value = elem.amount;
+        }
+        remove.onclick = function(){
+            elem.amount--;
+            input.value = elem.amount;
+            if(input.value <= 0){
+                orderList.removeChild(li)
+                order = order.filter(elem2 => elem2.amount != 0)
+                console.log(order)
+
+            }
+        }
+    })
+    return order
 }
+

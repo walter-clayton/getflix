@@ -103,7 +103,7 @@ ul{
 }
 
 #popUp::-webkit-scrollbar {
-	width: 10px;
+	width: 4px;
   }
   
   #popUp::-webkit-scrollbar-track {
@@ -113,7 +113,7 @@ ul{
   }
    
   #popUp::-webkit-scrollbar-thumb {
-	background: rgb(10, 69, 117); 
+	background:red; 
 	border-radius: 10px;
   }
 
@@ -122,3 +122,24 @@ ul{
 	  padding: 0;
 	  flex-direction: column;
   }
+  #orderList li{
+	  padding: 5px;
+	  display: flex;
+	  justify-content: space-between;
+	  align-items: center;
+  }
+  .orderPoster{
+	  height: 70px;
+
+  }
+  #orderList div{
+	display: flex;
+	width: 100px;
+}
+#orderList div input{
+	width: 100%;
+	margin: 0 5px 0 5px;
+}
+#orderList p{
+	margin: 0;
+}
