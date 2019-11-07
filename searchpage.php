@@ -47,7 +47,7 @@
   <!--Affichage de l'icone panier-->
   <i id="shop" class="fas fa-shopping-cart fa-2x">
   
-  <p id="popUp"></p>
+  <div id="popUp"><ul id="orderList"></ul></div>
   
 
   <!--Rond où sera afficher le nombre de film-->
