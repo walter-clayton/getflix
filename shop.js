@@ -26,12 +26,13 @@ function putPrice(){
 }
 putPrice();
 
+
 function fillPopUp(order){
     console.log(order)
     orderList.innerHTML = "";
 order.map(elem =>{
     const li = document.createElement('li');
     orderList.appendChild(li);
-    li.innerHTML = elem.name;
+    li.innerHTML = elem.name; 
 })
 }
