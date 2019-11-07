@@ -19,7 +19,11 @@ function putPrice(){
         amount += 1;
         amountInfo.innerHTML = amount;
         amountInfo.style.opacity = '1';
-        order.push({name: document.getElementById(`Movienum${elem}`).childNodes[0].id});
+        console.log(document.getElementById(`Movienum${elem}`).childNodes[0].childNodes[0]);
+        order.push({
+            name: document.getElementById(`Movienum${elem}`).childNodes[0].id,
+            poster: document.getElementById(`Movienum${elem}`).childNodes[0].childNodes[0].src
+        });
         fillPopUp(order);
         }
     })
@@ -27,11 +31,20 @@ function putPrice(){
 putPrice();
 
 function fillPopUp(order){
-    console.log(order)
-    orderList.innerHTML = "";
-order.map(elem =>{
-    const li = document.createElement('li');
-    orderList.appendChild(li);
-    li.innerHTML = elem.name;
-})
+        console.log(order)
+        orderList.innerHTML = "";
+    order.map(elem =>{
+        const li = document.createElement('li');
+        const img = document.createElement('img');
+        const p = document.createElement('p');
+        p.innerHTML = elem.name;
+        img.src = elem.poster;
+        img.className = 'orderPoster';
+        orderList.appendChild(li);
+        li.appendChild(img);
+        li.appendChild(p);
+        
+    })
+
 }
+
