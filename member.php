@@ -94,7 +94,7 @@ if ( $password_confirm === $password )
 
 // connect to the server and display errors.
 try{
-  $db = new PDO('mysql:host=localhost;dbname=getflix', 'root', '', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+  $db = new PDO('mysql:host=localhost;dbname=getflix', 'root', 'root', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
 }
 
 // display errors

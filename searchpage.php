@@ -1,6 +1,12 @@
 
 <?php 
-	session_start(); 
+  session_start(); 
+      if(isset($_REQUEST['o'])){
+          $_SESSION['order'] = json_decode($_REQUEST['o']);
+          if(isset($_SESSION['order'])){
+            var_dump ($_SESSION['order']);
+      }
+  }
 	?>
 
 	
@@ -117,6 +123,126 @@
 
  <!--------FOOTER------->
  <?php include("footer.php"); ?>
-<script src="shop.js"></script>
+<script>
+
+let amount = 0;
+  const amountInfo = document.getElementById('amount');
+  let price = '';
+  let order = []
+  let test = ''
+
+  <?php 
+  for($i = 0; $i < sizeof($_SESSION['order']); $i++){
+    echo "order.push(".json_encode($_SESSION['order'][$i]).");";
+  }
+  ?>
+
+  console.log(order)
+  const orderList = document.getElementById("orderList");
+  const arrayPrices = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28]
+  var jsondata;
+  var flickr;
+  var data;
+
+  for(let i = 0; i < order.length; i++) {
+    console.log(amount)
+    amount += order[i].amount
+  }
+
+function putPrice(){
+    arrayPrices.map(elem => {
+        price = document.createElement('button');
+        document.getElementById(`Movienum${elem}`).appendChild(price) ;
+        price.innerHTML = "Buy (3 €)";
+        price.className = "price" ;
+        amountInfo.innerHTML = amount
+        if(amount > 0)amountInfo.style.opacity = '1';
+
+        price.onclick = ()=>{
+        console.log(document.getElementById(`Movienum${elem}`).childNodes[0].childNodes[0]);
+        if (order.includes(order.filter(elem2 => elem2.name == document.getElementById(`Movienum${elem}`).childNodes[0].id)[0])){
+            order[order.indexOf(order.filter(elem2 => elem2.name == document.getElementById(`Movienum${elem}`).childNodes[0].id)[0])].amount += 1
+        }else{
+            order.push({
+                name: document.getElementById(`Movienum${elem}`).childNodes[0].id,
+                poster: document.getElementById(`Movienum${elem}`).childNodes[0].childNodes[0].src,
+                amount: 1
+            });
+        }
+        updateSession()
+
+        fillPopUp();
+        }
+    })
+}
+putPrice();
+
+
+function fillPopUp(){
+        console.log(order)
+        orderList.innerHTML = "";
+        order.map(elem =>{
+        const li = document.createElement('li');
+        const img = document.createElement('img');
+        const p = document.createElement('p');
+        const div = document.createElement('div');
+        const add = document.createElement('button');
+        const remove = document.createElement('button');
+        const input = document.createElement('input');
+        p.innerHTML = elem.name;
+        img.src = elem.poster;
+        img.className = 'orderPoster';
+        input.value = elem.amount;
+        add.innerHTML = "+";
+        remove.innerHTML = "-";
+        orderList.appendChild(li);
+        li.appendChild(img);
+        li.appendChild(p);
+        li.appendChild(div);  
+        div.appendChild(remove);
+        div.appendChild(input);
+        div.appendChild(add);
+        
+        add.onclick = function (){
+            elem.amount++;
+            input.value = elem.amount;
+            updateSession()
+        }
+        remove.onclick = function(){
+            elem.amount--;
+            input.value = elem.amount;
+            if(input.value <= 0){
+                orderList.removeChild(li)
+                order = order.filter(elem2 => elem2.amount != 0)
+                console.log(order)
+
+            }
+            updateSession()
+        }
+    })
+    return order
+}
+fillPopUp()
+
+function updateSession() {
+  flickr = order;
+  data = JSON.stringify(flickr);
+
+  var xhr = new XMLHttpRequest();
+  xhr.open("POST", "searchpage.php", !0);
+  xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+  xhr.send(data);
+  xhr.onreadystatechange = function () {
+      if (xhr.readyState === 4 && xhr.status === 200) {
+          // in case we reply back from server
+          //jsondata = JSON.parse(xhr.responseText);
+          window.location.href = `${window.location.href.substring(0, window.location.href.indexOf('.php') + 4)}?o=${data}`
+          console.log(456);
+      }
+  }
+} 
+
+
+</script>
 </body>
 </html>

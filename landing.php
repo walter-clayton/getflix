@@ -54,7 +54,7 @@
 <div class="card" style="width: 35.2rem;">
   <!-- ADDED BY HAMZA -->
 <?php
-    $db = new PDO('mysql:host=localhost;dbname=getflix', 'root', '', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+    $db = new PDO('mysql:host=localhost;dbname=getflix', 'root', 'root', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
     if(isset($_GET['id'])) {
         $idlion = $_GET['id'];
     
