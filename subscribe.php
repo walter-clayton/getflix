@@ -77,7 +77,7 @@ if(isset($_POST['submit'])){
       $pass_hashe = password_hash($password, PASSWORD_BCRYPT);
 
       // insert the input into the database
-      $req = $db->prepare('INSERT INTO members(pseudo, password, date_subscribed) VALUES (:pseudo, :password, curdate())');
+      $req = $db->prepare('INSERT INTO members (pseudo, password, date_subscribed) VALUES (:pseudo, :password, curdate())');
       $req->execute(array(
       'pseudo' => $pseudo, 
       'password' => $pass_hashe
