@@ -1,6 +1,7 @@
 
 <!-- HEADER -->
           <?php 
+          
     session_start(); 
 
   if (!isset($_SESSION['pseudo'])) {
@@ -8,7 +9,7 @@
     echo '<h1 style="color: white;">' .'you must login to add comments!' . '</h1>';
     header('location: signIn.php');
   }
-
+  
         ?>
 
 <?php include("header.php"); ?>
