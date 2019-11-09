@@ -143,3 +143,7 @@ ul{
 #orderList p{
 	margin: 0;
 }
+#totalPrice{
+	border:none;
+	pointer-events: none;
+}
