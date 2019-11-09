@@ -50,7 +50,7 @@
   </div>
 
   <!--Affichage de l'icone panier-->
-  <i id="shop" class="fas fa-shopping-cart fa-2x">
+  <i id="shop" class="fas fa-shopping-cart fa-2x" onClick="toggling()">
   
   <div id="popUp">
   <ul id="orderList"></ul>
@@ -58,7 +58,7 @@
   <input type ="text" id="promo" placeholder="Promo Code">
   <form method ="POST">
   <input id="totalPrice" name="totalPrice">
-  <input type="submit" value="Validate">
+  <input type="submit" value="Validate" id="Validate">
   </form>
   </div>
   
@@ -311,6 +311,18 @@ function updateSession() {
       }
   }
 } 
+
+let stating = true;
+function toggling(){
+  let popUping = document.getElementById('popUp');
+  if(stating){
+    popUping.style.visibility = 'visible';
+    stating = false;
+  }else {
+    popUping.style.visibility = 'hidden';
+    stating = true;
+  }
+}
 </script>
 <?php
     $db = new PDO('mysql:host=localhost;dbname=getflix', 'root', '', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));

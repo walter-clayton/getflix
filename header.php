@@ -61,10 +61,25 @@
 
 </form>
   </div >
-  <!--Affichage de l'icone panier-->
-  <i id="shop" class="fas fa-shopping-cart fa-2x">
+  <?php  
+      if(isset($_REQUEST['o'])){
+          $_SESSION['order'] = json_decode($_REQUEST['o']);
+          if(isset($_SESSION['order'])){
+      }
+  }
+	?>
+   <!--Affichage de l'icone panier-->
+   <i id="shop" class="fas fa-shopping-cart fa-2x" onclick="toggling()">
   
-  <div id="popUp"><ul id="orderList"></ul></div>
+  <div id="popUp">
+  <ul id="orderList"></ul>
+  <select id="select"><option value = "1">Belgium</option><option value = "2">E.U</option><option value = "3">Out E.U</option></select>
+  <input type ="text" id="promo" placeholder="Promo Code">
+  <form method ="POST">
+  <input id="totalPrice" name="totalPrice">
+  <input type="submit" value="Validate" id="Validate">
+  </form>
+  </div>
   
 
   <!--Rond où sera afficher le nombre de film-->
@@ -72,9 +87,19 @@
       
     </div>
   </i>
-  
-
-
+<script>
+let stating = true;
+function toggling(){
+  let popUping = document.getElementById('popUp');
+  if(stating){
+    popUping.style.visibility = 'visible';
+    stating = false;
+  }else {
+    popUping.style.visibility = 'hidden';
+    stating = true;
+  }
+}
+</script>
 <div class="collapse navbar-collapse justify-content-center" id="navbarTogglerDemo02">
 
 <?php  if (isset($_SESSION['pseudo'])) : ?>
