@@ -4,7 +4,6 @@
       if(isset($_REQUEST['o'])){
           $_SESSION['order'] = json_decode($_REQUEST['o']);
           if(isset($_SESSION['order'])){
-            var_dump ($_SESSION['order']);
       }
   }
 	?>
@@ -51,9 +50,17 @@
   </div>
 
   <!--Affichage de l'icone panier-->
-  <i id="shop" class="fas fa-shopping-cart fa-2x">
+  <i id="shop" class="fas fa-shopping-cart fa-2x" onClick="toggling()">
   
-  <div id="popUp"><ul id="orderList"></ul></div>
+  <div id="popUp">
+  <ul id="orderList"></ul>
+  <select id="select"><option value = "1">Belgium</option><option value = "2">E.U</option><option value = "3">Out E.U</option></select>
+  <input type ="text" id="promo" placeholder="Promo Code">
+  <form method ="POST">
+  <input id="totalPrice" name="totalPrice">
+  <input type="submit" value="Validate" id="Validate">
+  </form>
+  </div>
   
 
   <!--Rond où sera afficher le nombre de film-->
@@ -130,11 +137,14 @@ let amount = 0;
   let price = '';
   let order = []
   let test = ''
+  
 
-  <?php 
+  <?php
+  if(isset($_SESSION['order'])) {
   for($i = 0; $i < sizeof($_SESSION['order']); $i++){
     echo "order.push(".json_encode($_SESSION['order'][$i]).");";
   }
+}
   ?>
 
   console.log(order)
@@ -142,18 +152,78 @@ let amount = 0;
   const arrayPrices = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28]
   var jsondata;
   var flickr;
-  var data;
-
+  var data; 
+if(order.length >0 ){
   for(let i = 0; i < order.length; i++) {
     console.log(amount)
-    amount += order[i].amount
+    amount += order[i].amount;
+  
   }
+}
+let taxe = 0;
+const select = document.getElementById('select');
+let totalPrice = amount * 3 + taxe;
+let reduction = totalPrice/20;
+let promo = false
+
+document.getElementById('totalPrice').value = totalPrice -(amount>= 5 ? reduction : 0) + " EUR";
+document.getElementById('promo').onkeyup = function(){
+  console.log(222)
+  if(document.getElementById('promo').value == "MikeEstTropCool "){
+    console.log(333)
+    document.getElementById('promo').style.border = "2px solid rgb(40,160,80)";
+    document.getElementById('promo').style.backgroundColor = "rgb(70,175,130)";
+    document.getElementById('promo').style.color = "white";
+    promo = true;
+    updatePrice();
+  } else {
+    promo = false;
+    document.getElementById('promo').style.border = "initial";
+    document.getElementById('promo').style.backgroundColor = "initial";
+    document.getElementById('promo').style.color = "initial";
+    updatePrice();
+  }
+};
+select.onchange = function() {
+  console.log(select.options[select.selectedIndex].value)
+  updatePrice();
+}
+function updatePrice(){
+  if(select.options[select.selectedIndex].value == "1"){
+    taxe = 0;
+    totalPrice = amount * 3 + taxe ;
+    document.getElementById('totalPrice').value = totalPrice-(amount>= 5 ? reduction : 0)-(promo ? (totalPrice/100 *15): 0)  + " EUR";
+  }else if(select.options[select.selectedIndex].value == "2"){
+    taxe = 2.5;
+    totalPrice = amount * 3 + taxe ;
+    document.getElementById('totalPrice').value = totalPrice-(amount>= 5 ? reduction : 0)-(promo ? (taxe + totalPrice/10): 0)  + " EUR";
+  }else{
+    taxe = 5;
+    totalPrice = amount * 3 + taxe;
+    document.getElementById('totalPrice').value = totalPrice-(amount>= 5 ? reduction : 0)-(promo ? (taxe + totalPrice/10): 0)  + " EUR";
+  }
+  flickr = order;
+  data = JSON.stringify(flickr);
+
+  var xhr = new XMLHttpRequest();
+  xhr.open("POST", "searchpage.php", !0);
+  xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+  xhr.send(data);
+  xhr.onreadystatechange = function () {
+      if (xhr.readyState === 4 && xhr.status === 200) {
+          // in case we reply back from server
+          //jsondata = JSON.parse(xhr.responseText);
+          window.location.href = `${window.location.href.substring(0, window.location.href.indexOf('.php') + 4)}?o=${data}`
+          console.log(456);
+      }
+  }
+}
 
 function putPrice(){
     arrayPrices.map(elem => {
         price = document.createElement('button');
         document.getElementById(`Movienum${elem}`).appendChild(price) ;
-        price.innerHTML = "Buy (3 €)";
+        price.innerHTML = "Buy (3 EUR)";
         price.className = "price" ;
         amountInfo.innerHTML = amount
         if(amount > 0)amountInfo.style.opacity = '1';
@@ -242,7 +312,33 @@ function updateSession() {
   }
 } 
 
-
+let stating = true;
+function toggling(){
+  let popUping = document.getElementById('popUp');
+  if(stating){
+    popUping.style.visibility = 'visible';
+    stating = false;
+  }else {
+    popUping.style.visibility = 'hidden';
+    stating = true;
+  }
+}
 </script>
+<?php
+    $db = new PDO('mysql:host=localhost;dbname=getflix', 'root', '', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+
+if(isset($_POST['totalPrice'])){
+  $pseudo = $_SESSION['pseudo'];
+  $totalPrice = $_POST['totalPrice'];
+  
+  $db->exec("INSERT INTO orders (pseudo, price) VALUES ('$pseudo','$totalPrice')");
+  $selectOrd = $db->query("SELECT id FROM orders WHERE pseudo = '$pseudo' ");
+  while($ordId=$selectOrd->fetch()){
+    $ordering = $ordId['id'];
+  }
+  $db->exec("INSERT INTO detail_order (id_order, amount) VALUES ('$ordering', '$totalPrice')");
+}
+
+?>
 </body>
 </html>

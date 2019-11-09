@@ -14,7 +14,7 @@ $message = htmlspecialchars($_POST['message']);
 setcookie('pseudo', $pseudo, time() + 365243600, null, null, false, true);
 
 try{
-$db = new PDO('mysql:host=localhost;dbname=hamzacom', 'root', 'root', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+$db = new PDO('mysql:host=localhost;dbname=hamzacom', 'root', '', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
 
 }
 
