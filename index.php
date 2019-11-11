@@ -1,6 +1,6 @@
 
 <!-- HEADER -->
-          <?php 
+  <?php 
           
     session_start(); 
 
@@ -10,7 +10,7 @@
     header('location: signIn.php');
   }
   
-        ?>
+  ?>
 
 <?php include("header.php"); ?>
 
