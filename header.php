@@ -89,12 +89,18 @@
   </i>
 <script>
 let stating = true;
+let popUping = document.getElementById('popUp');
 function toggling(){
-  let popUping = document.getElementById('popUp');
   if(stating){
     popUping.style.visibility = 'visible';
     stating = false;
   }else {
+    popUping.style.visibility = 'hidden';
+    stating = true;
+  }
+}
+function shutDown(){
+  if(popUping.style.visibility = 'visible'){
     popUping.style.visibility = 'hidden';
     stating = true;
   }
