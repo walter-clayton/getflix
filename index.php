@@ -34,7 +34,7 @@
 
 
   <!--  SAMUEL SCROLL-->
-  <div class="container" style="padding-top:3%;">
+  <div class="container" style="padding-top:3%;" onclick="shutDown()">
 <h2 style="color:white;">Populaire</h2>
   <div class="populaire-carousel">
   <div id="carousel-example-multi" class="carousel slide carousel-multi-item v-2" data-ride="carousel">

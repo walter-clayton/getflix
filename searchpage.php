@@ -88,7 +88,7 @@
 <!-- END DEV MOUAD -->
 
 
-<ul id="myUL" class="container">
+<ul id="myUL" class="container" onclick="shutDown()">
 
 <li id="Movienum1" class ="poster"><a id="black mirror" herf="landing.php?id=9"><img  src="Photos/blackmirror.jpg" alt="Black Mirror" ></a></li>
 <li id="Movienum2" class ="poster"><a id="The Boys" herf="landing.php?id=10"><img  src="Photos/boys.jpg" alt="The Boys" ></a></li>
@@ -239,6 +239,7 @@ function putPrice(){
                 amount: 1
             });
         }
+        
         updateSession()
 
         fillPopUp();
@@ -313,8 +314,8 @@ function updateSession() {
 } 
 
 let stating = true;
+let popUping = document.getElementById('popUp');
 function toggling(){
-  let popUping = document.getElementById('popUp');
   if(stating){
     popUping.style.visibility = 'visible';
     stating = false;
@@ -323,7 +324,14 @@ function toggling(){
     stating = true;
   }
 }
+function shutDown(){
+  if(popUping.style.visibility = 'visible'){
+    popUping.style.visibility = 'hidden';
+    stating = true;
+  }
+}
 </script>
+
 <?php
     $db = new PDO('mysql:host=localhost;dbname=getflix', 'root', '', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
 
