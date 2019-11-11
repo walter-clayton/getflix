@@ -1,11 +1,13 @@
 
 <?php 
   session_start(); 
-      if(isset($_REQUEST['o'])){
-          $_SESSION['order'] = json_decode($_REQUEST['o']);
-          if(isset($_SESSION['order'])){
-      }
-  }
+    if(isset($_REQUEST['o'])){
+      $_SESSION['order'] = json_decode($_REQUEST['o']);
+    }
+    if(isset($_REQUEST['v'])) {
+      $_SESSION['visibility'] = $_REQUEST['v'];
+    }
+
 	?>
 
 	
@@ -50,7 +52,7 @@
   </div>
 
   <!--Affichage de l'icone panier-->
-  <i id="shop" class="fas fa-shopping-cart fa-2x" onClick="toggling()">
+  <i id="shop" class="fas fa-shopping-cart fa-2x">
   
   <div id="popUp">
   <ul id="orderList"></ul>
@@ -134,9 +136,27 @@
 
 let amount = 0;
   const amountInfo = document.getElementById('amount');
+  const icon = document.getElementById('shop')
+  const popUp = document.getElementById('popUp')
   let price = '';
   let order = []
   let test = ''
+  let visibility = false
+
+  <?php 
+    if(isset($_SESSION['visibility'])) {
+      echo 'visibility = ' . $_SESSION['visibility'];
+    }
+  ?>
+
+  if(visibility === true) popUp.style.visibility = 'visible'
+
+icon.onclick = (e) => {
+  if(e.target.id === 'shop') {
+    popUp.style.visibility = (visibility ? 'hidden' : 'visible')
+    visibility = !visibility
+  }
+}
   
 
   <?php
@@ -147,7 +167,6 @@ let amount = 0;
 }
   ?>
 
-  console.log(order)
   const orderList = document.getElementById("orderList");
   const arrayPrices = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28]
   var jsondata;
@@ -155,7 +174,6 @@ let amount = 0;
   var data; 
 if(order.length >0 ){
   for(let i = 0; i < order.length; i++) {
-    console.log(amount)
     amount += order[i].amount;
   
   }
@@ -169,7 +187,7 @@ let promo = false
 document.getElementById('totalPrice').value = totalPrice -(amount>= 5 ? reduction : 0) + " EUR";
 document.getElementById('promo').onkeyup = function(){
   console.log(222)
-  if(document.getElementById('promo').value == "MikeEstTropCool "){
+  if(document.getElementById('promo').value == "MikeEstTropCool"){
     console.log(333)
     document.getElementById('promo').style.border = "2px solid rgb(40,160,80)";
     document.getElementById('promo').style.backgroundColor = "rgb(70,175,130)";
@@ -185,7 +203,6 @@ document.getElementById('promo').onkeyup = function(){
   }
 };
 select.onchange = function() {
-  console.log(select.options[select.selectedIndex].value)
   updatePrice();
 }
 function updatePrice(){
@@ -201,21 +218,6 @@ function updatePrice(){
     taxe = 5;
     totalPrice = amount * 3 + taxe;
     document.getElementById('totalPrice').value = totalPrice-(amount>= 5 ? reduction : 0)-(promo ? (taxe + totalPrice/10): 0)  + " EUR";
-  }
-  flickr = order;
-  data = JSON.stringify(flickr);
-
-  var xhr = new XMLHttpRequest();
-  xhr.open("POST", "searchpage.php", !0);
-  xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-  xhr.send(data);
-  xhr.onreadystatechange = function () {
-      if (xhr.readyState === 4 && xhr.status === 200) {
-          // in case we reply back from server
-          //jsondata = JSON.parse(xhr.responseText);
-          window.location.href = `${window.location.href.substring(0, window.location.href.indexOf('.php') + 4)}?o=${data}`
-          console.log(456);
-      }
   }
 }
 
@@ -239,6 +241,7 @@ function putPrice(){
                 amount: 1
             });
         }
+        
         updateSession()
 
         fillPopUp();
@@ -249,7 +252,6 @@ putPrice();
 
 
 function fillPopUp(){
-        console.log(order)
         orderList.innerHTML = "";
         order.map(elem =>{
         const li = document.createElement('li');
@@ -284,7 +286,6 @@ function fillPopUp(){
             if(input.value <= 0){
                 orderList.removeChild(li)
                 order = order.filter(elem2 => elem2.amount != 0)
-                console.log(order)
 
             }
             updateSession()
@@ -301,29 +302,15 @@ function updateSession() {
   var xhr = new XMLHttpRequest();
   xhr.open("POST", "searchpage.php", !0);
   xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-  xhr.send(data);
+  xhr.send(data, visibility);
   xhr.onreadystatechange = function () {
       if (xhr.readyState === 4 && xhr.status === 200) {
-          // in case we reply back from server
-          //jsondata = JSON.parse(xhr.responseText);
-          window.location.href = `${window.location.href.substring(0, window.location.href.indexOf('.php') + 4)}?o=${data}`
-          console.log(456);
+          window.location.href = `${window.location.href.substring(0, window.location.href.indexOf('.php') + 4)}?o=${data}&v=${visibility}`
       }
   }
 } 
-
-let stating = true;
-function toggling(){
-  let popUping = document.getElementById('popUp');
-  if(stating){
-    popUping.style.visibility = 'visible';
-    stating = false;
-  }else {
-    popUping.style.visibility = 'hidden';
-    stating = true;
-  }
-}
 </script>
+
 <?php
     $db = new PDO('mysql:host=localhost;dbname=getflix', 'root', '', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
 

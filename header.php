@@ -64,12 +64,10 @@
   <?php  
       if(isset($_REQUEST['o'])){
           $_SESSION['order'] = json_decode($_REQUEST['o']);
-          if(isset($_SESSION['order'])){
-      }
   }
 	?>
    <!--Affichage de l'icone panier-->
-   <i id="shop" class="fas fa-shopping-cart fa-2x" onclick="toggling()">
+   <i id="shop" class="fas fa-shopping-cart fa-2x">
   
   <div id="popUp">
   <ul id="orderList"></ul>
@@ -87,19 +85,7 @@
       
     </div>
   </i>
-<script>
-let stating = true;
-function toggling(){
-  let popUping = document.getElementById('popUp');
-  if(stating){
-    popUping.style.visibility = 'visible';
-    stating = false;
-  }else {
-    popUping.style.visibility = 'hidden';
-    stating = true;
-  }
-}
-</script>
+
 <div class="collapse navbar-collapse justify-content-center" id="navbarTogglerDemo02">
 
 <?php  if (isset($_SESSION['pseudo'])) : ?>
