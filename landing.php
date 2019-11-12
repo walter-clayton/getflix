@@ -159,7 +159,22 @@ $response->closeCursor();
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
 <script src="shop.js"></script>
+<?php
+    $db = new PDO('mysql:host=localhost;dbname=getflix', 'root', '', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
 
+if(isset($_POST['totalPrice'])){
+  $pseudo = $_SESSION['pseudo'];
+  $totalPrice = $_POST['totalPrice'];
+  
+  $db->exec("INSERT INTO orders (pseudo, price) VALUES ('$pseudo','$totalPrice')");
+  $selectOrd = $db->query("SELECT id FROM orders WHERE pseudo = '$pseudo' ");
+  while($ordId=$selectOrd->fetch()){
+    $ordering = $ordId['id'];
+  }
+  $db->exec("INSERT INTO detail_order (id_order, amount) VALUES ('$ordering', '$totalPrice')");
+}
+
+?>
 </body>
 
 </html>

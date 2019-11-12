@@ -61,11 +61,16 @@
 
 </form>
   </div >
-  <?php  
-      if(isset($_REQUEST['o'])){
-          $_SESSION['order'] = json_decode($_REQUEST['o']);
-  }
+  <?php 
+    if(isset($_REQUEST['o'])){
+      $_SESSION['order'] = json_decode($_REQUEST['o']);
+    }
+    if(isset($_REQUEST['v'])) {
+      $_SESSION['visibility'] = $_REQUEST['v'];
+    }
+
 	?>
+	
    <!--Affichage de l'icone panier-->
    <i id="shop" class="fas fa-shopping-cart fa-2x">
   
