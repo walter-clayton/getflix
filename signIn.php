@@ -65,6 +65,8 @@ catch (Exception $e) {
           $_SESSION['ID'] = $results['ID'];
           $_SESSION['pseudo'] = $pseudo;
           $_SESSION['success'] = "";
+          
+          
           header('location: index.php');
         
       }
